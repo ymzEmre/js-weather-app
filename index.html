@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <audio id="myAudio">
+      <source src="./assets/sound/sunny.mp3" type="audio/ogg" />
+      Your browser does not support the audio element.
+    </audio>
+
+    <audio id="myAudio2">
+      <source src="./assets/sound/rainy.mp3" type="audio/mpeg" />
+    </audio>
+    <div class="app">
+      <div class="header">
+        <h3>hava durumu</h3>
+
+        <input type="text" id="searchBar" class="content" />
+        <button id="speech">asd</button>
+      </div>
+
+      <div class="content">
+        <div class="city"></div>
+        <div class="temp"></div>
+        <div class="desc"></div>
+        <div class="minmax"></div>
+      </div>
+    </div>
+  </body>
+
+  <script src="app.js"></script>
+  <script src="sound.js"></script>
+</html>
