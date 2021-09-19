@@ -4,34 +4,44 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <title>Document</title>
   </head>
-  <body>
-    <audio id="myAudio">
+  <body class="bodyClass">
+    <audio id="soundSunny">
       <source src="./assets/sound/sunny.mp3" type="audio/ogg" />
       Your browser does not support the audio element.
     </audio>
 
-    <audio id="myAudio2">
+    <audio id="soundRainy">
       <source src="./assets/sound/rainy.mp3" type="audio/mpeg" />
     </audio>
-    <div class="app">
-      <div class="header">
-        <h3>hava durumu</h3>
-        <input type="text" id="searchBar" class="content" />
-        <button id="speech">asd</button>
-      </div>
 
-      <div class="content">
-        <div class="city"></div>
-        <div class="temp"></div>
-        <div class="desc"></div>
-        <div class="minmax"></div>
+    <div class="deneme">
+      <div class="app">
+        <div class="header">
+          <h3>WEATHER</h3>
+          <input type="text" id="searchBar" class="content" />
+          <i id="speech" class="fas fa-microphone"></i>
+
+          <div>
+            <div class="city"></div>
+            <div class="temp"></div>
+            <div class="desc"></div>
+            <div class="minmax"></div>
+          </div>
+        </div>
       </div>
     </div>
   </body>
 
-  <script src="app.js"></script>
-  <script src="sound.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/sound.js"></script>
 </html>

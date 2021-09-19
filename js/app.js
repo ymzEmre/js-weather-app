@@ -4,10 +4,8 @@ const weatherApiKey = "bfe61cb95c2da5f72b6fadb2bb5dc8dd";
 const searchBar = document.getElementById("searchBar");
 
 const setQuery = (e) => {
-  // if (e.keyCode == "13") {
   getResult(searchBar.value);
   console.log(searchBar.value);
-  // }
 };
 
 const getResult = (cityName) => {
@@ -19,7 +17,6 @@ const getResult = (cityName) => {
     .then(displayResult)
 
     .catch((err) => {
-      // document.querySelector('.app').style.backgroundColor = '#fff';\
       console.log(err);
     });
 };
@@ -41,10 +38,8 @@ const displayResult = (result) => {
 
   console.log(result);
 
-  let getDesc = result.weather[0].main;
-
-  var x = document.getElementById("myAudio");
-  var x2 = document.getElementById("myAudio2");
+  var x = document.getElementById("soundSunny");
+  var x2 = document.getElementById("soundRainy");
 
   function playAudio() {
     x.play();
@@ -62,32 +57,33 @@ const displayResult = (result) => {
     x2.pause();
   }
 
-  // açık
-  // kapalı
-  // az bulutlu
+  let getDesc = result.weather[0].main;
 
   switch (getDesc) {
     case (getDesc = "Clear"):
-      pauseAudio2();
-      playAudio();
-      document.querySelector(".app").style.backgroundImage = "url('./assets/img/sunny.jpg')";
+      document.querySelector(".bodyClass").style.backgroundImage = "url('./assets/img/clear-sky-daylight.jpg')";
       break;
 
     case (getDesc = "Clouds"):
-      pauseAudio();
-      playAudio2();
-      document.querySelector(".app").style.backgroundImage = "url('./assets/img/clouds.jpg')";
-
+      document.querySelector(".bodyClass").style.backgroundImage = "url('./assets/img/clouds.jpg')";
       break;
 
     case (getDesc = "Rain"):
-      document.querySelector(".app").style.backgroundImage = "url('./assets/img/rainy.gif')";
-
+      document.querySelector(".bodyClass").style.backgroundImage = "url('./assets/img/rainy.gif')";
       break;
 
-    default:
+    case (getDesc = "Snow"):
+      document.querySelector(".bodyClass").style.backgroundImage = "url('./assets/img/snow.gif')";
+      break;
 
-    // document.body.style.backgroundColor = "red";
+    case (getDesc = "Mist"):
+      document.querySelector(".bodyClass").style.backgroundImage = "url('./assets/img/mist.png')";
+      break;
+
+    case (getDesc = "Thunderstorm"):
+      document.querySelector(".bodyClass").style.backgroundImage = "url('./assets/img/thunderstorm.jpg')";
+      break;
+    default:
   }
 };
 

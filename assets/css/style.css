@@ -1,0 +1,74 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap");
+
+body {
+  background-image: url("/assets/img/4-seasons.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  color: #ebebeb;
+  font-family: "Poppins", sans-serif;
+  letter-spacing: 1px;
+}
+
+.bodyClass {
+  transition-duration: 2s;
+}
+
+.app {
+  background-size: cover;
+  background-color: #232323f0;
+  height: 100vh;
+  max-height: 430px;
+  width: 100%;
+  max-width: 690px;
+  display: flex;
+  justify-content: center;
+  align-content: stretch;
+  flex-direction: row;
+  border-radius: 30px;
+}
+
+.deneme {
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-content: stretch;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.header {
+}
+
+.header h3 {
+  margin-top: 50px;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.content {
+  width: 600px;
+  height: 30px;
+  max-width: 100%;
+  border-radius: 6px;
+  background-color: #2b2f30;
+  outline: 0;
+  box-shadow: 0px 0px 4px 1px #fff;
+  transition: all 0.5s;
+  color: #fff;
+}
+
+.content:hover {
+  background-color: #1d1e1e;
+}
+
+.content:focus {
+  background-color: #1d1e1e;
+}
