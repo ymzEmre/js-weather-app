@@ -15,27 +15,42 @@
     <title>Document</title>
   </head>
   <body class="bodyClass">
-    <audio id="soundSunny">
-      <source src="./assets/sound/sunny.mp3" type="audio/ogg" />
-      Your browser does not support the audio element.
+    <audio id="soundClearSkyDay" loop class="emre">
+      <source src="./assets/sound/clear-sky-day.mp3" type="audio/mpeg" />
     </audio>
 
-    <audio id="soundRainy">
-      <source src="./assets/sound/rainy.mp3" type="audio/mpeg" />
+    <audio id="soundClearSkyNight" loop class="emre">
+      <source src="./assets/sound/clear-sky-night.mp3" type="audio/mpeg" />
+    </audio>
+
+    <audio id="soundRain" loop class="emre">
+      <source src="./assets/sound/rain.mp3" type="audio/mpeg" />
+    </audio>
+
+    <audio id="soundSnow" loop class="emre">
+      <source src="./assets/sound/snow.mp3" type="audio/mpeg" />
+    </audio>
+
+    <audio id="soundStorm" loop class="emre">
+      <source src="./assets/sound/storm.mp3" type="audio/mpeg" />
+    </audio>
+    <audio id="soundMist" loop>
+      <source src="./assets/sound/mist.mp3" type="audio/mpeg" />
     </audio>
 
     <div class="deneme">
       <div class="app">
         <div class="header">
           <h3>WEATHER</h3>
-          <input type="text" id="searchBar" class="content" />
+          <input type="text" id="searchBar" class="content" autocomplete="off" />
           <i id="speech" class="fas fa-microphone"></i>
 
-          <div>
+          <div class="cityDetail">
             <div class="city"></div>
             <div class="temp"></div>
             <div class="desc"></div>
             <div class="minmax"></div>
+            <div class="err"></div>
           </div>
         </div>
       </div>
