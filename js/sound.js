@@ -6,11 +6,9 @@ const rec = new SpeechRecognition();
 
 rec.onresult = function (event) {
   const current = event.resultIndex;
-
   const transcript = event.results[current][0].transcript;
   content.value = transcript;
-  readOutLoud(transcript);
-  document.getElementById("searchBar").click();
+  // readOutLoud(transcript);
 };
 
 function recoStart() {
@@ -18,3 +16,7 @@ function recoStart() {
 }
 
 document.getElementById("speech").addEventListener("click", recoStart);
+
+rec.addEventListener("end", function () {
+  document.getElementById("searchBar").click();
+});

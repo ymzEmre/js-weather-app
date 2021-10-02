@@ -59,7 +59,6 @@ const displayResult = (result) => {
       soundRain.pause();
       soundSnow.pause();
       soundMist.pause();
-      // document.querySelectorAll("audio:not(#soundClearSkyDay)").pause();
       break;
 
     case (getDesc = "Clouds"):
