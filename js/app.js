@@ -9,7 +9,7 @@ const setQuery = (e) => {
 
 const getResult = (cityName) => {
   let query = `${weatherApiUrl}weather?q=${cityName}&appid=${weatherApiKey}&units=metric`;
-  let emre = (document.querySelector(".err").innerText = "");
+  let err = (document.querySelector(".err").innerText = "");
 
   city.innerText = "";
   temp.innerText = "";
@@ -20,12 +20,21 @@ const getResult = (cityName) => {
       return weather.json();
     })
     .then(displayResult)
-    .then(emre)
+    .then(err)
 
     .catch((err) => {
+      if (searchBar.value != "") {
+        document.querySelector(".err").innerText = "City not found";
+      }
       console.log(err);
       document.querySelector(".bodyClass").style.backgroundImage = "url('./assets/img/4-seasons.jpg')";
-      document.querySelector(".err").innerText = "City non found";
+      soundRain.pause();
+      soundClearSkyNight.pause();
+      soundSnow.pause();
+      soundSnow.pause();
+      soundStorm.pause();
+      soundMist.pause();
+      soundClearSkyDay.pause();
     });
 };
 let city = document.querySelector(".city");
