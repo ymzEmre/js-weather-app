@@ -1,33 +1,40 @@
 const weatherApiUrl = "https://api.openweathermap.org/data/2.5/";
 const weatherApiKey = "bfe61cb95c2da5f72b6fadb2bb5dc8dd";
 
-let searchBar = document.getElementById("searchBar");
+let searchBox = document.querySelector(".searchBox");
+
+let cityName = document.querySelector(".cityName");
+let cityTemp = document.querySelector(".cityTemp");
+let cityDesc = document.querySelector(".cityDesc");
+let cityMinMax = document.querySelector(".cityMinMax");
+let cityNotFound = document.querySelector(".cityNotFound");
+
+const bodyClass = document.querySelector(".bodyClass");
 
 const setQuery = (e) => {
-  getResult(searchBar.value);
+  getResult(searchBox.value);
 };
 
-const getResult = (cityName) => {
-  let query = `${weatherApiUrl}weather?q=${cityName}&appid=${weatherApiKey}&units=metric`;
-  let err = (document.querySelector(".err").innerText = "");
+const getResult = (weatherApiCity) => {
+  let query = `${weatherApiUrl}weather?q=${weatherApiCity}&appid=${weatherApiKey}&units=metric`;
 
-  city.innerText = "";
-  temp.innerText = "";
-  desc.innerText = "";
-  minmax.innerText = "";
+  cityName.innerText = "";
+  cityTemp.innerText = "";
+  cityDesc.innerText = "";
+  cityMinMax.innerText = "";
+  cityNotFound.innerText = "";
+
   fetch(query)
     .then((weather) => {
       return weather.json();
     })
     .then(displayResult)
-    .then(err)
 
     .catch((err) => {
-      if (searchBar.value != "") {
-        document.querySelector(".err").innerText = "City not found";
+      if (searchBox.value.length > 2) {
+        cityNotFound.innerText = "City not found";
       }
-      console.log(err);
-      document.querySelector(".bodyClass").style.backgroundImage = "url('./assets/img/4-seasons.jpg')";
+      bodyClass.style.backgroundImage = "url('./assets/img/4-seasons.jpg')";
       soundRain.pause();
       soundClearSkyNight.pause();
       soundSnow.pause();
@@ -37,19 +44,15 @@ const getResult = (cityName) => {
       soundClearSkyDay.pause();
     });
 };
-let city = document.querySelector(".city");
-let temp = document.querySelector(".temp");
-let desc = document.querySelector(".desc");
-let minmax = document.querySelector(".minmax");
 
 const displayResult = (result) => {
-  city.innerText = `${result.name}, ${result.sys.country}`;
+  cityName.innerText = `${result.name}, ${result.sys.country}`;
 
-  temp.innerText = `${Math.round(result.main.temp)} °C`;
+  cityTemp.innerText = `${Math.round(result.main.temp)} °C`;
 
-  desc.innerText = result.weather[0].description;
+  cityDesc.innerText = result.weather[0].description;
 
-  minmax.innerText = `${Math.round(result.main.temp_min)} / ${Math.round(result.main.temp_max)}`;
+  cityMinMax.innerText = `${Math.round(result.main.temp_min)} / ${Math.round(result.main.temp_max)}`;
 
   const soundClearSkyDay = document.getElementById("soundClearSkyDay");
   const soundClearSkyNight = document.getElementById("soundClearSkyNight");
@@ -62,7 +65,7 @@ const displayResult = (result) => {
 
   switch (getDesc) {
     case (getDesc = "Clear"):
-      document.querySelector(".bodyClass").style.backgroundImage = "url('./assets/img/clear-sky-daylight.jpg')";
+      bodyClass.style.backgroundImage = "url('./assets/img/clear-sky-daylight.jpg')";
       soundClearSkyDay.play();
       soundClearSkyNight.pause();
       soundRain.pause();
@@ -71,7 +74,7 @@ const displayResult = (result) => {
       break;
 
     case (getDesc = "Clouds"):
-      document.querySelector(".bodyClass").style.backgroundImage = "url('./assets/img/clouds.jpg')";
+      bodyClass.style.backgroundImage = "url('./assets/img/clouds.jpg')";
       soundMist.play();
       soundClearSkyNight.pause();
       soundRain.pause();
@@ -80,7 +83,7 @@ const displayResult = (result) => {
       break;
 
     case (getDesc = "Rain"):
-      document.querySelector(".bodyClass").style.backgroundImage = "url('./assets/img/rainy.gif')";
+      bodyClass.style.backgroundImage = "url('./assets/img/rainy.gif')";
       soundRain.play();
       soundClearSkyNight.pause();
       soundSnow.pause();
@@ -90,7 +93,7 @@ const displayResult = (result) => {
       break;
 
     case (getDesc = "Snow"):
-      document.querySelector(".bodyClass").style.backgroundImage = "url('./assets/img/snow.gif')";
+      bodyClass.style.backgroundImage = "url('./assets/img/snow.gif')";
       soundSnow.play();
       soundClearSkyNight.pause();
       soundRain.pause();
@@ -99,7 +102,7 @@ const displayResult = (result) => {
       break;
 
     case (getDesc = "Mist"):
-      document.querySelector(".bodyClass").style.backgroundImage = "url('./assets/img/mist.png')";
+      bodyClass.style.backgroundImage = "url('./assets/img/mist.png')";
       soundMist.play();
       soundClearSkyNight.pause();
       soundRain.pause();
@@ -108,7 +111,7 @@ const displayResult = (result) => {
       break;
 
     case (getDesc = "Thunderstorm"):
-      document.querySelector(".bodyClass").style.backgroundImage = "url('./assets/img/thunderstorm.jpg')";
+      bodyClass.style.backgroundImage = "url('./assets/img/thunderstorm.jpg')";
       soundStorm.play();
       soundClearSkyNight.pause();
       soundRain.pause();
@@ -121,5 +124,5 @@ const displayResult = (result) => {
 };
 
 "click keyup".split(" ").forEach(function (e) {
-  searchBar.addEventListener(e, setQuery, false);
+  searchBox.addEventListener(e, setQuery, false);
 });

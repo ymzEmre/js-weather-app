@@ -15,42 +15,42 @@
     <title>Document</title>
   </head>
   <body class="bodyClass">
-    <audio id="soundClearSkyDay" loop class="emre">
+    <audio id="soundClearSkyDay" loop>
       <source src="./assets/sound/clear-sky-day.mp3" type="audio/mpeg" />
     </audio>
 
-    <audio id="soundClearSkyNight" loop class="emre">
+    <audio id="soundClearSkyNight" loop>
       <source src="./assets/sound/clear-sky-night.mp3" type="audio/mpeg" />
     </audio>
 
-    <audio id="soundRain" loop class="emre">
+    <audio id="soundRain" loop>
       <source src="./assets/sound/rain.mp3" type="audio/mpeg" />
     </audio>
 
-    <audio id="soundSnow" loop class="emre">
+    <audio id="soundSnow" loop>
       <source src="./assets/sound/snow.mp3" type="audio/mpeg" />
     </audio>
 
-    <audio id="soundStorm" loop class="emre">
+    <audio id="soundStorm" loop>
       <source src="./assets/sound/storm.mp3" type="audio/mpeg" />
     </audio>
     <audio id="soundMist" loop>
       <source src="./assets/sound/mist.mp3" type="audio/mpeg" />
     </audio>
 
-    <div class="deneme">
-      <div class="app">
-        <div class="header">
+    <div class="app">
+      <div class="section">
+        <div class="content">
           <h3>WEATHER</h3>
-          <input type="text" id="searchBar" class="content" autocomplete="off" />
-          <i id="speech" class="fas fa-microphone"></i>
+          <input type="text" class="searchBox" placeholder="Search city" autocomplete="off" />
+          <i class="fas fa-microphone iconMicrophone"></i>
 
           <div class="cityDetail">
-            <div class="city"></div>
-            <div class="temp"></div>
-            <div class="desc"></div>
-            <div class="minmax"></div>
-            <div class="err"></div>
+            <div class="cityName"></div>
+            <div class="cityTemp"></div>
+            <div class="cityDesc"></div>
+            <div class="cityMinMax"></div>
+            <div class="cityNotFound"></div>
           </div>
         </div>
       </div>

@@ -21,6 +21,16 @@ body {
 }
 
 .app {
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-content: stretch;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.section {
   background-size: cover;
   background-color: #232323f0;
   height: 100vh;
@@ -34,23 +44,13 @@ body {
   border-radius: 30px;
 }
 
-.deneme {
-  height: 100vh;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  align-content: stretch;
-  justify-content: space-evenly;
-  align-items: center;
-}
-
-.header h3 {
+.content h3 {
   margin-top: 50px;
   margin-bottom: 15px;
   text-align: center;
 }
 
-.content {
+.searchBox {
   width: 600px;
   height: 30px;
   max-width: 100%;
@@ -60,12 +60,51 @@ body {
   box-shadow: 0px 0px 4px 1px #fff;
   transition: all 0.5s;
   color: #fff;
+  text-indent: 7px;
+  font-weight: bold;
+  font-size: 16px;
+  text-transform: uppercase;
 }
 
-.content:hover {
+.searchBox::placeholder {
+  text-transform: none;
+  font-weight: normal;
+  color: #a5a5a5;
+}
+
+.searchBox:hover {
   background-color: #1d1e1e;
 }
 
-.content:focus {
+.searchBox:focus {
   background-color: #1d1e1e;
+}
+
+.cityDetail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 30px;
+  font-size: 16px;
+}
+
+.fa-microphone {
+  margin-left: 15px;
+  transform: scale(1.4);
+  transition: transform 0.6s;
+  cursor: pointer;
+}
+
+.speechEnd {
+  transform: scale(1.4);
+}
+
+.speechStart {
+  transform: scale(1.8);
+  color: #fd3333;
+}
+
+.cityNotFound {
+  font-weight: bold;
+  color: #fd3333;
 }
