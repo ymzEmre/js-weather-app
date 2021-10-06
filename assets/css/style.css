@@ -44,6 +44,17 @@ body {
   border-radius: 30px;
 }
 
+@media screen and (max-width: 768px) {
+  .section {
+    max-width: none;
+    width: 80%;
+  }
+
+  .searchBox {
+    width: unset !important;
+  }
+}
+
 .content h3 {
   margin-top: 50px;
   margin-bottom: 15px;

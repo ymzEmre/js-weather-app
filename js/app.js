@@ -1,15 +1,14 @@
 const weatherApiUrl = "https://api.openweathermap.org/data/2.5/";
 const weatherApiKey = "bfe61cb95c2da5f72b6fadb2bb5dc8dd";
 
-let searchBox = document.querySelector(".searchBox");
+const bodyClass = document.querySelector(".bodyClass");
 
+let searchBox = document.querySelector(".searchBox");
 let cityName = document.querySelector(".cityName");
 let cityTemp = document.querySelector(".cityTemp");
 let cityDesc = document.querySelector(".cityDesc");
 let cityMinMax = document.querySelector(".cityMinMax");
 let cityNotFound = document.querySelector(".cityNotFound");
-
-const bodyClass = document.querySelector(".bodyClass");
 
 const setQuery = (e) => {
   getResult(searchBox.value);
@@ -47,11 +46,8 @@ const getResult = (weatherApiCity) => {
 
 const displayResult = (result) => {
   cityName.innerText = `${result.name}, ${result.sys.country}`;
-
   cityTemp.innerText = `${Math.round(result.main.temp)} °C`;
-
   cityDesc.innerText = result.weather[0].description;
-
   cityMinMax.innerText = `${Math.round(result.main.temp_min)} / ${Math.round(result.main.temp_max)}`;
 
   const soundClearSkyDay = document.getElementById("soundClearSkyDay");
