@@ -32,7 +32,7 @@ body {
 
 .section {
   background-size: cover;
-  background-color: #232323f0;
+  background-color: var(--bg-black);
   height: 100vh;
   max-height: 430px;
   width: 100%;
@@ -62,7 +62,7 @@ body {
   color: #fff;
   text-indent: 7px;
   font-weight: bold;
-  font-size: 16px;
+  font-size: var(--font-size);
   text-transform: uppercase;
 }
 
@@ -73,11 +73,11 @@ body {
 }
 
 .searchBox:hover {
-  background-color: #1d1e1e;
+  background-color: var(--black);
 }
 
 .searchBox:focus {
-  background-color: #1d1e1e;
+  background-color: var(--black);
 }
 
 .cityDetail {
@@ -85,7 +85,7 @@ body {
   flex-direction: column;
   align-items: center;
   margin-top: 30px;
-  font-size: 16px;
+  font-size: var(--font-size);
 }
 
 .fa-microphone {
@@ -101,10 +101,10 @@ body {
 
 .speechStart {
   transform: scale(1.8);
-  color: #fd3333;
+  color: var(--red);
 }
 
 .cityNotFound {
   font-weight: bold;
-  color: #fd3333;
+  color: var(--red);
 }
