@@ -44,6 +44,15 @@ body {
   border-radius: 30px;
 }
 
+.section-city-finded {
+  opacity: 0.3;
+  transition: opacity 1s;
+}
+
+.section-city-finded:hover {
+  opacity: unset;
+}
+
 @media screen and (max-width: 768px) {
   .section {
     max-width: none;
@@ -56,8 +65,8 @@ body {
 }
 
 .content h3 {
-  margin-top: 50px;
-  margin-bottom: 15px;
+  margin-top: 45px;
+  margin-bottom: 30px;
   text-align: center;
 }
 

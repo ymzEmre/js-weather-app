@@ -59,6 +59,10 @@ const displayResult = (result) => {
 
   let getDesc = result.weather[0].main;
 
+  if (getDesc.length > 0) {
+    document.querySelector(".section").classList.add("section-city-finded");
+  }
+
   switch (getDesc) {
     case (getDesc = "Clear"):
       bodyClass.style.backgroundImage = "url('./assets/img/clear-sky-daylight.jpg')";
