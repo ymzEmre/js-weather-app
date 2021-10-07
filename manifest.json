@@ -36,8 +36,7 @@
   ],
   "theme_color": "#175466",
   "background_color": "#000",
-  "start_url": "/",
-  "scope": ".",
+  "start_url": "https://js-weather-app-zeta.vercel.app/",
   "display": "fullscreen",
   "orientation": "portrait"
 }
