@@ -36,7 +36,8 @@
   ],
   "theme_color": "#175466",
   "background_color": "#000",
-  "start_url": "./",
+  "start_url": "/",
+  "scope": ".",
   "display": "fullscreen",
   "orientation": "portrait"
 }
