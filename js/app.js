@@ -34,6 +34,8 @@ const getResult = (weatherApiCity) => {
         cityNotFound.innerText = "City not found";
       }
       bodyClass.style.backgroundImage = "url('./assets/img/4-seasons.jpg')";
+      document.querySelector(".section").classList.remove("section-city-finded");
+
       soundRain.pause();
       soundClearSkyNight.pause();
       soundSnow.pause();
