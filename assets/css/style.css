@@ -56,7 +56,7 @@ body {
 @media screen and (max-width: 768px) {
   .section {
     max-width: none;
-    width: 80%;
+    width: 95%;
   }
 
   .searchBox {
