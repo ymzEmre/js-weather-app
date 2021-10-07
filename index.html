@@ -13,6 +13,13 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="prototurk.com" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <link rel="icon" sizes="128x128" href="assets/img/PWA/144x144.png" />
+    <link rel="icon" sizes="128x128" href="assets/img/PWA/192x192.png" />
     <title>Document</title>
   </head>
   <body class="bodyClass">
@@ -59,6 +66,14 @@
       </div>
     </div>
   </body>
+
+  <script>
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", function () {
+        navigator.serviceWorker.register("/serviceWorker.js?v=1");
+      });
+    }
+  </script>
 
   <script src="js/app.js"></script>
   <script src="js/speechRecognition.js"></script>
