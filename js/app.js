@@ -35,14 +35,12 @@ const getResult = (weatherApiCity) => {
       }
       bodyClass.style.backgroundImage = "url('./assets/img/4-seasons.jpg')";
       document.querySelector(".section").classList.remove("section-city-finded");
-
+      soundClearSkyDay.pause();
       soundRain.pause();
-      soundClearSkyNight.pause();
       soundSnow.pause();
       soundSnow.pause();
       soundStorm.pause();
       soundMist.pause();
-      soundClearSkyDay.pause();
     });
 };
 
@@ -53,7 +51,7 @@ const displayResult = (result) => {
   cityMinMax.innerText = `${Math.round(result.main.temp_min)} / ${Math.round(result.main.temp_max)}`;
 
   const soundClearSkyDay = document.getElementById("soundClearSkyDay");
-  const soundClearSkyNight = document.getElementById("soundClearSkyNight");
+  // const soundClearSkyNight = document.getElementById("soundClearSkyNight");
   const soundRain = document.getElementById("soundRain");
   const soundSnow = document.getElementById("soundSnow");
   const soundStorm = document.getElementById("soundStorm");
@@ -69,26 +67,26 @@ const displayResult = (result) => {
     case (getDesc = "Clear"):
       bodyClass.style.backgroundImage = "url('./assets/img/clear-sky-daylight.jpg')";
       soundClearSkyDay.play();
-      soundClearSkyNight.pause();
       soundRain.pause();
       soundSnow.pause();
+      soundStorm.pause();
       soundMist.pause();
       break;
 
     case (getDesc = "Clouds"):
       bodyClass.style.backgroundImage = "url('./assets/img/clouds.jpg')";
       soundMist.play();
-      soundClearSkyNight.pause();
+      soundClearSkyDay.pause();
       soundRain.pause();
       soundSnow.pause();
       soundStorm.pause();
+
       break;
 
     case (getDesc = "Rain"):
       bodyClass.style.backgroundImage = "url('./assets/img/rainy.gif')";
       soundRain.play();
-      soundClearSkyNight.pause();
-      soundSnow.pause();
+      soundClearSkyDay.pause();
       soundSnow.pause();
       soundStorm.pause();
       soundMist.pause();
@@ -97,7 +95,7 @@ const displayResult = (result) => {
     case (getDesc = "Snow"):
       bodyClass.style.backgroundImage = "url('./assets/img/snow.gif')";
       soundSnow.play();
-      soundClearSkyNight.pause();
+      soundClearSkyDay.pause();
       soundRain.pause();
       soundStorm.pause();
       soundMist.pause();
@@ -106,7 +104,7 @@ const displayResult = (result) => {
     case (getDesc = "Mist"):
       bodyClass.style.backgroundImage = "url('./assets/img/mist.png')";
       soundMist.play();
-      soundClearSkyNight.pause();
+      soundClearSkyDay.pause();
       soundRain.pause();
       soundSnow.pause();
       soundStorm.pause();
@@ -115,9 +113,8 @@ const displayResult = (result) => {
     case (getDesc = "Thunderstorm"):
       bodyClass.style.backgroundImage = "url('./assets/img/thunderstorm.jpg')";
       soundStorm.play();
-      soundClearSkyNight.pause();
+      soundClearSkyDay.pause();
       soundRain.pause();
-      soundSnow.pause();
       soundSnow.pause();
       soundMist.pause();
       break;
