@@ -61,6 +61,8 @@ const displayResult = (result) => {
 
   if (getDesc.length > 0) {
     document.querySelector(".section").classList.add("section-city-finded");
+    document.querySelector(".section").classList.add("section-city-finded2");
+    document.querySelector(".content").classList.add("content2");
   }
 
   switch (getDesc) {
