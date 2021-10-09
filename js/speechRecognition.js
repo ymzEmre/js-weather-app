@@ -14,6 +14,24 @@ function recoStart() {
   rec.start();
 }
 
+const checkbox = document.getElementById("ios-checkbox");
+const calc = () => {
+  if (checkbox.checked) {
+    localStorage.setItem("autoListen", checkbox.checked);
+  } else {
+    localStorage.setItem("autoListen", checkbox.checked);
+  }
+};
+
+const checked = JSON.parse(localStorage.getItem("autoListen"));
+if (checked) {
+  checkbox.checked = true;
+  rec.start();
+} else {
+  checkbox.checked = false;
+  rec.stop();
+}
+
 // function readOutLoud(mess) {
 //   const speech = new SpeechSynthesisUtterance();
 
