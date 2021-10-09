@@ -59,14 +59,14 @@ body {
 
 @media screen and (max-width: 768px) {
   .section {
-    max-height: 205px;
+    max-height: 240px;
     margin-top: 9px;
     width: 95%;
     padding: 21px 0;
   }
 
   .content2 {
-    margin-top: -35px !important;
+    margin-top: -15px !important;
     transition: margin 1s;
   }
 
@@ -77,6 +77,11 @@ body {
 
   .app {
     align-items: flex-start;
+  }
+
+  .checkbox-group {
+    margin-top: -90px !important;
+    margin-bottom: 90px !important;
   }
 }
 
