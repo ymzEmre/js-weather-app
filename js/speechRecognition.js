@@ -1,9 +1,8 @@
 const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-// let searchBox = document.querySelector(".searchBox");
 
 const rec = new SpeechRecognition();
 
-rec.onresult = function (event) {
+rec.onresult = (event) => {
   const current = event.resultIndex;
   const transcript = event.results[current][0].transcript;
   searchBox.value = transcript;
@@ -35,27 +34,33 @@ if (checked) {
 // function readOutLoud(mess) {
 //   const speech = new SpeechSynthesisUtterance();
 
-//   speech.text = mess + "Derece" + cityTemp.innerHTML;
-//   speech.text = cityTemp.value;
+//   speech.text = mess + "hava" + "10 derece";
 //   speech.volume = 1;
 //   speech.rate = 1;
 //   speech.pitch = 1;
-//   console.log(cityTemp.value);
+//   // console.log(cityTemp.value);
 //   window.speechSynthesis.speak(speech);
 
 //   const utterance = new SpeechSynthesisUtterance(speech.text);
 //   window.speechSynthesis.speak(utterance);
 // }
 
+const micStop = () => {
+  setTimeout(() => {
+    rec.stop();
+  }, 3000);
+};
+
 document.querySelector(".iconMicrophone").addEventListener("click", recoStart);
 
-rec.addEventListener("start", function () {
+rec.onstart = (e) => {
   document.querySelector(".iconMicrophone").classList.add("speechStart");
   document.querySelector(".iconMicrophone").classList.remove("speechEnd");
-});
+  micStop();
+};
 
-rec.addEventListener("end", function () {
+rec.onend = (e) => {
   searchBox.click();
   document.querySelector(".iconMicrophone").classList.add("speechEnd");
   document.querySelector(".iconMicrophone").classList.remove("speechStart");
-});
+};
