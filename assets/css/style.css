@@ -34,7 +34,7 @@ body {
   background-size: cover;
   background-color: var(--bg-black);
   height: 100vh;
-  max-height: 430px;
+  max-height: 230px;
   width: 100%;
   max-width: 690px;
   display: flex;
@@ -42,11 +42,15 @@ body {
   align-content: stretch;
   flex-direction: row;
   border-radius: 30px;
+  transition: all 1s;
 }
 
 .section-city-finded {
-  opacity: 0.3;
-  transition: opacity 1s;
+  opacity: 0.9;
+}
+
+.section-city-finded2 {
+  max-height: 330px;
 }
 
 .section-city-finded:hover {
@@ -55,12 +59,29 @@ body {
 
 @media screen and (max-width: 768px) {
   .section {
-    max-width: none;
-    width: 80%;
+    max-height: 240px;
+    margin-top: 9px;
+    width: 95%;
+    padding: 21px 0;
+  }
+
+  .content2 {
+    margin-top: -15px !important;
+    transition: margin 1s;
   }
 
   .searchBox {
-    width: unset !important;
+    width: 70vw !important;
+    max-width: 450px !important;
+  }
+
+  .app {
+    align-items: flex-start;
+  }
+
+  .checkbox-group {
+    margin-top: -90px !important;
+    margin-bottom: 90px !important;
   }
 }
 
@@ -101,9 +122,6 @@ body {
 }
 
 .cityDetail {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   margin-top: 30px;
   font-size: var(--font-size);
 }
@@ -127,4 +145,74 @@ body {
 .cityNotFound {
   font-weight: bold;
   color: var(--red);
+}
+
+.ios-checkbox {
+  position: absolute;
+  width: 50px;
+  height: 25px;
+  align-self: flex-start;
+}
+
+.checkbox-group {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: -90px;
+  margin-bottom: 90px;
+  margin-right: -3px;
+}
+
+.checkbox-group p {
+  margin-right: 58px;
+  font-size: 12px;
+  font-style: italic;
+  margin-top: 5px;
+  color: #9f9f9f;
+}
+
+.raw-checkbox {
+  display: none;
+}
+.raw-checkbox:checked + label {
+  background: #34bf49;
+}
+.raw-checkbox:checked + label:after {
+  left: 26px;
+}
+.raw-checkbox:checked + label:active:after {
+  left: 21.4px;
+}
+.raw-checkbox:disabled + label {
+  background: #d5d5d5;
+  pointer-events: none;
+}
+.raw-checkbox:disabled + label:after {
+  background: #bcbdbc;
+}
+.css-checkbox {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  border-radius: 60px;
+  background: #ccc;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.css-checkbox:after {
+  content: "";
+  position: absolute;
+  left: 2px;
+  top: 2px;
+  display: block;
+  width: 21px;
+  height: 21px;
+  border-radius: 100%;
+  background: #fff;
+  box-shadow: 0 1px 1px rgb(0 0 0 / 10%);
+  transition: width 0.3s ease, left 0.3s ease;
+}
+.css-checkbox:active:after {
+  width: 26.4px;
 }

@@ -14,46 +14,76 @@
       referrerpolicy="no-referrer"
     />
 
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+      (function (m, e, t, r, i, k, a) {
+        m[i] =
+          m[i] ||
+          function () {
+            (m[i].a = m[i].a || []).push(arguments);
+          };
+        m[i].l = 1 * new Date();
+        (k = e.createElement(t)), (a = e.getElementsByTagName(t)[0]), (k.async = 1), (k.src = r), a.parentNode.insertBefore(k, a);
+      })(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+      ym(85829086, "init", {
+        clickmap: true,
+        trackLinks: true,
+        accurateTrackBounce: true,
+        webvisor: true,
+      });
+    </script>
+    <noscript
+      ><div><img src="https://mc.yandex.ru/watch/85829086" style="position: absolute; left: -9999px" alt="" /></div
+    ></noscript>
+    <!-- /Yandex.Metrika counter -->
+
     <link rel="manifest" href="/manifest.json" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-title" content="prototurk.com" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
     <link rel="icon" sizes="128x128" href="assets/img/PWA/144x144.png" />
     <link rel="icon" sizes="128x128" href="assets/img/PWA/192x192.png" />
-    <title>Document</title>
+    <title>Weather</title>
   </head>
   <body class="bodyClass">
     <audio id="soundClearSkyDay" loop>
-      <source src="./assets/sound/clear-sky-day.mp3" type="audio/mpeg" />
+      <source src="http://docs.google.com/uc?export=open&id=1oRNuggej5nqvqOZq8H9OiPbe94HOvTED" type="audio/mpeg" />
     </audio>
 
-    <audio id="soundClearSkyNight" loop>
-      <source src="./assets/sound/clear-sky-night.mp3" type="audio/mpeg" />
-    </audio>
+    <!-- <audio id="soundClearSkyNight" loop>
+      <source src="http://docs.google.com/uc?export=open&id=1ocdoveY4wGkpCAW_If5sPnJr64IE6FOo" type="audio/mpeg" />
+    </audio> -->
 
     <audio id="soundRain" loop>
-      <source src="./assets/sound/rain.mp3" type="audio/mpeg" />
+      <source src="http://docs.google.com/uc?export=open&id=1ryysPmbzV1OthQKlzH2Eu9iEBUIjWuMt" type="audio/mpeg" />
     </audio>
 
     <audio id="soundSnow" loop>
-      <source src="./assets/sound/snow.mp3" type="audio/mpeg" />
+      <source src="http://docs.google.com/uc?export=open&id=1L6TNU7--Fow8Qah8YsOPdI3MVhclRgJ-" type="audio/mpeg" />
     </audio>
 
     <audio id="soundStorm" loop>
-      <source src="./assets/sound/storm.mp3" type="audio/mpeg" />
+      <source src="http://docs.google.com/uc?export=open&id=1RNbeHSqQhqqItW24pOvRM-zTC9VvwzfD" type="audio/mpeg" />
     </audio>
     <audio id="soundMist" loop>
-      <source src="./assets/sound/mist.mp3" type="audio/mpeg" />
+      <source src="http://docs.google.com/uc?export=open&id=1t4il9p4lk6tHus7LX5kEsIF7HiNshbLP" type="audio/mpeg" />
     </audio>
 
     <div class="app">
       <div class="section">
         <div class="content">
           <h3>WEATHER</h3>
-          <div>
-            <input type="text" class="searchBox" placeholder="Search city" autocomplete="off" />
-            <i class="fas fa-microphone iconMicrophone"></i>
+
+          <div class="checkbox-group">
+            <p>Auto listen at startup</p>
+            <div class="ios-checkbox">
+              <input class="raw-checkbox" id="ios-checkbox" type="checkbox" name="emulate-checkbox" onchange="calc()" />
+              <label class="css-checkbox" for="ios-checkbox"></label>
+            </div>
           </div>
+          <input type="text" class="searchBox" placeholder="Search city" autocomplete="off" />
+          <i class="fas fa-microphone iconMicrophone"></i>
 
           <div class="cityDetail">
             <div class="cityName"></div>

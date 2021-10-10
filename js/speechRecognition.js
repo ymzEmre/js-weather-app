@@ -6,6 +6,7 @@ rec.onresult = (event) => {
   const current = event.resultIndex;
   const transcript = event.results[current][0].transcript;
   searchBox.value = transcript;
+  readOutLoud(transcript);
 };
 
 function recoStart() {

@@ -1,6 +1,6 @@
 {
   "name": "Weather",
-  "short_name": "ymzEmre",
+  "short_name": "Weather",
   "icons": [
     {
       "src": "assets/img/PWA/32x32.png",
@@ -34,7 +34,7 @@
       "type": "image/png"
     }
   ],
-  "theme_color": "#175466",
+  "theme_color": "#000",
   "background_color": "#000",
   "start_url": "/",
   "display": "fullscreen",
