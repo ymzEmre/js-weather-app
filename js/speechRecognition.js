@@ -6,7 +6,7 @@ rec.onresult = (event) => {
   const current = event.resultIndex;
   const transcript = event.results[current][0].transcript;
   searchBox.value = transcript;
-  readOutLoud(transcript);
+  // readOutLoud(transcript);
 };
 
 function recoStart() {
@@ -63,4 +63,5 @@ rec.onend = (e) => {
   searchBox.click();
   document.querySelector(".iconMicrophone").classList.add("speechEnd");
   document.querySelector(".iconMicrophone").classList.remove("speechStart");
+  console.log("emre");
 };

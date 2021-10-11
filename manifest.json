@@ -1,6 +1,7 @@
 {
   "name": "Weather",
   "short_name": "Weather",
+
   "icons": [
     {
       "src": "assets/img/PWA/32x32.png",
