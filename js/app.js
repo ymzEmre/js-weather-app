@@ -33,6 +33,7 @@ const getResult = (weatherApiCity) => {
       if (searchBox.value.length > 2) {
         cityNotFound.innerText = "City not found";
       }
+
       bodyClass.style.backgroundImage = "url('./assets/img/4-seasons.jpg')";
       document.querySelector(".section").classList.remove("section-city-finded");
       soundClearSkyDay.pause();
