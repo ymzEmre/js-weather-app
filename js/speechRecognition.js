@@ -13,21 +13,23 @@ function recoStart() {
   rec.start();
 }
 
-const checkbox = document.getElementById("ios-checkbox");
-const calc = () => {
-  if (checkbox.checked) {
-    localStorage.setItem("autoListen", checkbox.checked);
+const checkboxSpeechRec = document.getElementById("checkboxSpeechRec");
+
+const saveSpeechRecValue = () => {
+  if (checkboxSpeechRec) {
+    localStorage.setItem("autoListen", checkboxSpeechRec.checked);
   } else {
-    localStorage.setItem("autoListen", checkbox.checked);
+    localStorage.setItem("autoListen", checkboxSpeechRec.checked);
   }
 };
 
-const checked = JSON.parse(localStorage.getItem("autoListen"));
-if (checked) {
-  checkbox.checked = true;
+const getSpeechRecValue = JSON.parse(localStorage.getItem("autoListen"));
+
+if (getSpeechRecValue) {
+  checkboxSpeechRec.checked = true;
   rec.start();
 } else {
-  checkbox.checked = false;
+  checkboxSpeechRec.checked = false;
   rec.stop();
 }
 
@@ -60,8 +62,7 @@ rec.onstart = (e) => {
 };
 
 rec.onend = (e) => {
-  searchBox.click();
+  setQuery();
   document.querySelector(".iconMicrophone").classList.add("speechEnd");
   document.querySelector(".iconMicrophone").classList.remove("speechStart");
-  console.log("emre");
 };

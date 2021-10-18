@@ -6,7 +6,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap");
 
 body {
-  background-image: url("/assets/img/4-seasons.jpg");
+  background-image: url("/assets/img/bg-wallpaper1.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -27,84 +27,64 @@ body {
   flex-wrap: nowrap;
   align-content: stretch;
   justify-content: space-evenly;
-  align-items: center;
 }
 
 .section {
-  background-size: cover;
-  background-color: var(--bg-black);
-  height: 100vh;
-  max-height: 230px;
-  width: 100%;
-  max-width: 690px;
   display: flex;
   justify-content: center;
   align-content: stretch;
   flex-direction: row;
-  border-radius: 30px;
   transition: all 1s;
+  max-height: 240px;
+  width: 95%;
+  padding: 21px 0;
+  margin-top: -8px;
 }
 
-.section-city-finded {
-  opacity: 0.9;
-}
-
-.section-city-finded2 {
+/* .section-city-finded2 {
   max-height: 330px;
+} */
+
+@media screen and (min-width: 768px) {
+  /* .section-city-finded {
+    opacity: 0.9;
+  }
+
+  
+
+  .section-city-finded:hover {
+    opacity: unset;
+  } */
 }
 
-.section-city-finded:hover {
-  opacity: unset;
-}
-
-@media screen and (max-width: 768px) {
-  .section {
-    max-height: 240px;
-    margin-top: 9px;
-    width: 95%;
-    padding: 21px 0;
-  }
-
-  .content2 {
-    margin-top: -15px !important;
-    transition: margin 1s;
-  }
-
-  .searchBox {
-    width: 70vw !important;
-    max-width: 450px !important;
-  }
-
-  .app {
-    align-items: flex-start;
-  }
-
-  .checkbox-group {
-    margin-top: -90px !important;
-    margin-bottom: 90px !important;
-  }
+.displayNone {
+  display: none;
 }
 
 .content h3 {
   margin-top: 45px;
   margin-bottom: 30px;
   text-align: center;
+  display: none;
 }
 
 .searchBox {
-  width: 600px;
-  height: 30px;
-  max-width: 100%;
+  /* width: 600px; */
+  height: 35px;
+  /* max-width: 100%; */
   border-radius: 6px;
-  background-color: #2b2f30;
+  background-color: #f0f0f0;
   outline: 0;
-  box-shadow: 0px 0px 4px 1px #fff;
   transition: all 0.5s;
   color: #fff;
   text-indent: 7px;
   font-weight: bold;
   font-size: var(--font-size);
   text-transform: uppercase;
+  border: 2px solid #a0a0a0;
+  filter: var(--drop-shadow);
+  width: 70vw;
+  color: #000;
 }
 
 .searchBox::placeholder {
@@ -113,17 +93,68 @@ body {
   color: #a5a5a5;
 }
 
-.searchBox:hover {
-  background-color: var(--black);
-}
+/* .searchBox:hover {
+  background-color: #ffffff91;
+} */
 
 .searchBox:focus {
-  background-color: var(--black);
+  background-color: #ffffff91;
 }
 
 .cityDetail {
   margin-top: 30px;
   font-size: var(--font-size);
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+  color: #000;
+  height: 230px;
+  border-radius: 20px;
+  max-width: 605px;
+  /* background: linear-gradient(179deg, rgb(131 58 180 / 73%) 0%, rgb(253 29 29 / 71%) 50%, rgb(112 71 170) 100%); */
+  backdrop-filter: blur(20px);
+  background: #ffffff17;
+  display: none;
+  transition: all 1s;
+  box-shadow: 0px 0px 3px 1px #fefefec4 inset;
+}
+
+.polat {
+  display: flex;
+}
+
+.cityMain {
+  width: 50vw;
+}
+
+.wrapper {
+  width: 80vw;
+  padding: 25px 25px;
+  border-radius: 25px;
+  /* background: linear-gradient(201deg, rgb(131 58 180 / 73%) 0%, rgb(253 29 29 / 71%) 50%, rgb(112 71 170) 100%); */
+  backdrop-filter: blur(20px);
+  background: #ffffff17;
+  box-shadow: 0px 0px 3px 1px #fefefec4 inset;
+}
+
+.cityData > div {
+  display: flex;
+  margin-top: 15px;
+  justify-content: space-between;
+  width: 20vw;
+}
+
+.cityData div i {
+  font-size: 22px;
+}
+
+.displayOff {
+  display: none !important;
+}
+
+.cityDetail .cityTemp {
+  font-size: 45px;
+  margin-left: 5px;
 }
 
 .fa-microphone {
@@ -131,6 +162,7 @@ body {
   transform: scale(1.4);
   transition: transform 0.6s;
   cursor: pointer;
+  filter: var(--drop-shadow);
 }
 
 .speechEnd {
@@ -154,12 +186,16 @@ body {
   align-self: flex-start;
 }
 
+.changeDeg {
+  margin-bottom: 40px;
+}
+
 .checkbox-group {
   display: flex;
+  margin-right: 37px;
+  margin-bottom: 21px;
+  filter: var(--drop-shadow);
   justify-content: flex-end;
-  margin-top: -90px;
-  margin-bottom: 90px;
-  margin-right: -3px;
 }
 
 .checkbox-group p {
@@ -167,20 +203,20 @@ body {
   font-size: 12px;
   font-style: italic;
   margin-top: 5px;
-  color: #9f9f9f;
+  color: #000000;
 }
 
 .raw-checkbox {
   display: none;
 }
 .raw-checkbox:checked + label {
-  background: #34bf49;
+  background: #14d832;
 }
 .raw-checkbox:checked + label:after {
   left: 26px;
 }
 .raw-checkbox:checked + label:active:after {
-  left: 21.4px;
+  left: 21px;
 }
 .raw-checkbox:disabled + label {
   background: #d5d5d5;
@@ -198,7 +234,7 @@ body {
   border-radius: 60px;
   background: #ccc;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.5s cubic-bezier(0.57, 0.8, 0.47, 0.38);
 }
 .css-checkbox:after {
   content: "";
