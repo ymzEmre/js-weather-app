@@ -48,7 +48,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" />
     <title>Weather</title>
   </head>
-  <body class="bodyClass">
+  <body class="bodyClass slider">
     <audio id="soundClearSky" loop>
       <source src="http://docs.google.com/uc?export=open&id=1oRNuggej5nqvqOZq8H9OiPbe94HOvTED" type="audio/mpeg" />
     </audio>
@@ -92,40 +92,42 @@
             <input type="text" class="searchBox" placeholder="Search city" autocomplete="off" autofocus />
             <i class="fas fa-microphone iconMicrophone"></i>
           </div>
-          <div class="cityDetail">
-            <div class="cityMain">
-              <div class="cityName"></div>
-              <div class="cityTemp"></div>
-              <div class="cityDesc"></div>
+          <div class="emre22">
+            <div class="cityDetail">
+              <div class="cityMain">
+                <div class="cityName"></div>
+                <div class="cityTemp"></div>
+                <div class="cityDesc"></div>
+              </div>
+
+              <div class="cityData">
+                <div>
+                  <i class="bi bi-thermometer-half"></i>
+                  <div class="cityMinMax"></div>
+                </div>
+
+                <div>
+                  <i class="bi bi-moisture"></i>
+                  <div class="cityHumidity"></div>
+                </div>
+
+                <div>
+                  <i class="bi bi-wind"></i>
+                  <div class="cityWindSpeed"></div>
+                </div>
+
+                <div>
+                  <i class="bi bi-sunrise"></i>
+                  <div class="citySunrise"></div>
+                </div>
+
+                <div>
+                  <i class="bi bi-sunset"></i>
+                  <div class="citySunset"></div>
+                </div>
+              </div>
+              <div class="cityNotFound"></div>
             </div>
-
-            <div class="cityData">
-              <div>
-                <i class="bi bi-thermometer-half"></i>
-                <div class="cityMinMax"></div>
-              </div>
-
-              <div>
-                <i class="bi bi-moisture"></i>
-                <div class="cityHumidity"></div>
-              </div>
-
-              <div>
-                <i class="bi bi-wind"></i>
-                <div class="cityWindSpeed"></div>
-              </div>
-
-              <div>
-                <i class="bi bi-sunrise"></i>
-                <div class="citySunrise"></div>
-              </div>
-
-              <div>
-                <i class="bi bi-sunset"></i>
-                <div class="citySunset"></div>
-              </div>
-            </div>
-            <div class="cityNotFound"></div>
           </div>
         </div>
       </div>

@@ -46,6 +46,8 @@ const cityIcon = document.querySelectorAll(".cityData i");
 
 const cityDetail = document.querySelector(".cityDetail");
 
+const mainSet = document.querySelectorAll(".checkbox-group p");
+
 const setQuery = (e) => {
   getResult(searchBox.value);
 };
@@ -66,6 +68,9 @@ const getResult = (weatherApiCity) => {
     cityIcon[i].classList.add("displayOff");
   }
 
+  mainSet[0].classList.remove("black");
+  mainSet[1].classList.remove("black");
+
   fetch(query)
     .then((weather) => {
       return weather.json();
@@ -74,17 +79,18 @@ const getResult = (weatherApiCity) => {
     .then(displayResult)
 
     .catch((err) => {
-      if (searchBox.value.length > 2) {
+      if (searchBox.value.length < 3) {
+        cityDetail.classList.remove("polat");
+      } else if (searchBox.value.length > 2) {
         cityNotFound.innerText = "City not found";
         cityMain.classList.add("displayNone");
         cityData.classList.add("displayNone");
+        cityDetail.classList.add("polat");
       } else {
-        cityDetail.classList.remove("polat");
-
-        // cityMain.classList.remove("displayNone");
-        // cityData.classList.remove("displayNone");
+        cityMain.classList.remove("displayNone");
+        cityData.classList.remove("displayNone");
       }
-      bodyClass.style.backgroundImage = "url('./assets/img/bg-wallpaper1.jpg')";
+      bodyClass.style.backgroundImage = "url('./assets/img/2.jpg')";
       document.querySelector(".section").classList.remove("section-city-finded");
       soundClearSky.pause();
       soundRain.pause();
@@ -92,8 +98,6 @@ const getResult = (weatherApiCity) => {
       soundSnow.pause();
       soundStorm.pause();
       soundMist.pause();
-      // cityMain.classList.add("displayNone");
-      // cityData.classList.add("displayNone");
     });
 };
 
@@ -108,6 +112,9 @@ const displayResult = (result) => {
   cityWindSpeed.innerText = `${result.wind.speed}`;
   citySunrise.innerText = tm(`${result.sys.sunrise}`);
   citySunset.innerText = tm(`${result.sys.sunset}`);
+
+  mainSet[0].classList.add("black");
+  mainSet[1].classList.add("black");
 
   cityMain.classList.remove("displayNone");
   cityData.classList.remove("displayNone");
@@ -136,6 +143,7 @@ const displayResult = (result) => {
   if (getDesc.length > 0) {
     document.querySelector(".section").classList.add("section-city-finded");
     document.querySelector(".section").classList.add("section-city-finded2");
+    cityNotFound.innerText = "";
   }
 
   switch (getDesc) {

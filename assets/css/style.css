@@ -6,7 +6,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap");
 
 body {
-  background-image: url("/assets/img/bg-wallpaper1.jpg");
+  background-image: url("/assets/img/2.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -49,12 +49,29 @@ body {
   /* .section-city-finded {
     opacity: 0.9;
   }
-
-  
-
   .section-city-finded:hover {
     opacity: unset;
   } */
+
+  .wrapper {
+    width: 40vw !important;
+  }
+
+  .searchBox {
+    max-width: 95%;
+  }
+
+  .cityData > div {
+    width: unset !important;
+  }
+
+  .cityMain {
+    width: 70% !important;
+  }
+}
+
+.cityData div div {
+  white-space: pre;
 }
 
 .displayNone {
@@ -73,7 +90,7 @@ body {
   height: 35px;
   /* max-width: 100%; */
   border-radius: 6px;
-  background-color: #f0f0f0;
+  background-color: transparent;
   outline: 0;
   transition: all 0.5s;
   color: #fff;
@@ -81,16 +98,22 @@ body {
   font-weight: bold;
   font-size: var(--font-size);
   text-transform: uppercase;
-  border: 2px solid #a0a0a0;
+  border: 1px solid #e3e3e3;
   filter: var(--drop-shadow);
   width: 70vw;
-  color: #000;
+  color: #fff;
+  margin-right: -4px;
+}
+
+.black {
+  color: #000 !important;
 }
 
 .searchBox::placeholder {
   text-transform: none;
   font-weight: normal;
-  color: #a5a5a5;
+  color: #e4e4e4;
+  font-style: italic;
 }
 
 /* .searchBox:hover {
@@ -98,11 +121,12 @@ body {
 } */
 
 .searchBox:focus {
-  background-color: #ffffff91;
+  background-color: transparent;
+  box-shadow: 0px 0px 8px #ffffffb5;
 }
 
 .cityDetail {
-  margin-top: 30px;
+  margin-top: 20px;
   font-size: var(--font-size);
   justify-content: center;
   flex-direction: row;
@@ -121,6 +145,12 @@ body {
 
 .polat {
   display: flex;
+  width: 100%;
+}
+
+.emre22 {
+  display: flex;
+  justify-content: center;
 }
 
 .cityMain {
@@ -134,18 +164,19 @@ body {
   /* background: linear-gradient(201deg, rgb(131 58 180 / 73%) 0%, rgb(253 29 29 / 71%) 50%, rgb(112 71 170) 100%); */
   backdrop-filter: blur(20px);
   background: #ffffff17;
-  box-shadow: 0px 0px 3px 1px #fefefec4 inset;
+  box-shadow: 0px 0px 3px 1px #fefefec4;
 }
 
 .cityData > div {
   display: flex;
   margin-top: 15px;
-  justify-content: space-between;
-  width: 20vw;
+  font-weight: bold;
 }
 
 .cityData div i {
   font-size: 22px;
+  margin-right: 30px;
+  font-weight: bold;
 }
 
 .displayOff {
@@ -176,7 +207,7 @@ body {
 
 .cityNotFound {
   font-weight: bold;
-  color: var(--red);
+  color: #fff;
 }
 
 .ios-checkbox {
@@ -203,7 +234,7 @@ body {
   font-size: 12px;
   font-style: italic;
   margin-top: 5px;
-  color: #000000;
+  color: #e4e4e4;
 }
 
 .raw-checkbox {
