@@ -6,7 +6,7 @@ rec.onresult = (event) => {
   const current = event.resultIndex;
   const transcript = event.results[current][0].transcript;
   searchBox.value = transcript;
-  // readOutLoud(transcript);
+  readOutLoud(transcript);
 };
 
 function recoStart() {
@@ -33,19 +33,55 @@ if (getSpeechRecValue) {
   rec.stop();
 }
 
-// function readOutLoud(mess) {
-//   const speech = new SpeechSynthesisUtterance();
+var userLang = navigator.language || navigator.userLanguage;
 
-//   speech.text = mess + "hava" + "10 derece";
-//   speech.volume = 1;
-//   speech.rate = 1;
-//   speech.pitch = 1;
-//   // console.log(cityTemp.value);
-//   window.speechSynthesis.speak(speech);
+// console.log(userLang);
 
-//   const utterance = new SpeechSynthesisUtterance(speech.text);
-//   window.speechSynthesis.speak(utterance);
-// }
+function readOutLoud(mess) {
+  const speech = new SpeechSynthesisUtterance();
+
+  speech.volume = 1;
+  speech.rate = 1;
+  speech.pitch = 1;
+
+  switch (userLang) {
+    case (userLang = "tr"):
+      setTimeout(() => {
+        if (cityTemp.innerText.includes("-")) {
+          var replace = cityTemp.innerText.replace("-", "eksi ");
+          var arr = [mess + " " + replace];
+        } else {
+          var arr = [mess + " " + cityTemp.innerText];
+        }
+        speech.text = arr;
+        window.speechSynthesis.speak(speech);
+      }, 300);
+      break;
+
+    case (userLang = "en-US"):
+      setTimeout(() => {
+        if (cityTemp.innerText.includes("-")) {
+          var replace = cityTemp.innerText.replace("-", "minus ");
+          var arr = [mess + " " + replace];
+        } else {
+          var arr = [mess + " " + cityTemp.innerText];
+        }
+        speech.text = arr;
+        window.speechSynthesis.speak(speech);
+      }, 300);
+      break;
+
+    default:
+      break;
+  }
+
+  // const utterance = new SpeechSynthesisUtterance(speech.text);
+  // window.speechSynthesis.speak(utterance);
+}
+
+// setTimeout(() => {
+//   readOutLoud();
+// }, 300);
 
 const micStop = () => {
   setTimeout(() => {

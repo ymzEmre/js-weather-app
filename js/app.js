@@ -144,6 +144,7 @@ const displayResult = (result) => {
     document.querySelector(".section").classList.add("section-city-finded");
     document.querySelector(".section").classList.add("section-city-finded2");
     cityNotFound.innerText = "";
+    // readOutLoud(searchBox.value);
   }
 
   switch (getDesc) {
