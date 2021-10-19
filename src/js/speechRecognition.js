@@ -5,7 +5,7 @@ const rec = new SpeechRecognition();
 rec.onresult = (event) => {
   const current = event.resultIndex;
   const transcript = event.results[current][0].transcript;
-  searchBox.value = transcript;
+  searchBoxEl.value = transcript;
   readOutLoud(transcript);
 };
 
@@ -13,28 +13,27 @@ function recoStart() {
   rec.start();
 }
 
-const checkboxSpeechRec = document.getElementById("checkboxSpeechRec");
+const checkboxSpeechEl = document.getElementById("checkboxSpeech");
 
-const saveSpeechRecValue = () => {
-  if (checkboxSpeechRec) {
-    localStorage.setItem("autoListen", checkboxSpeechRec.checked);
+const speechCurrentValue = () => {
+  if (checkboxSpeechEl) {
+    localStorage.setItem("autoListen", checkboxSpeechEl.checked);
   } else {
-    localStorage.setItem("autoListen", checkboxSpeechRec.checked);
+    localStorage.setItem("autoListen", checkboxSpeechEl.checked);
   }
 };
 
 const getSpeechRecValue = JSON.parse(localStorage.getItem("autoListen"));
 
 if (getSpeechRecValue) {
-  checkboxSpeechRec.checked = true;
+  checkboxSpeechEl.checked = true;
   rec.start();
 } else {
-  checkboxSpeechRec.checked = false;
+  checkboxSpeechEl.checked = false;
   rec.stop();
 }
 
 var userLang = navigator.language || navigator.userLanguage;
-
 // console.log(userLang);
 
 function readOutLoud(mess) {
@@ -47,11 +46,11 @@ function readOutLoud(mess) {
   switch (userLang) {
     case (userLang = "tr"):
       setTimeout(() => {
-        if (cityTemp.innerText.includes("-")) {
-          var replace = cityTemp.innerText.replace("-", "eksi ");
+        if (cityTempEl.innerText.includes("-")) {
+          var replace = cityTempEl.innerText.replace("-", "eksi ");
           var arr = [mess + " " + replace];
         } else {
-          var arr = [mess + " " + cityTemp.innerText];
+          var arr = [mess + " " + cityTempEl.innerText];
         }
         speech.text = arr;
         window.speechSynthesis.speak(speech);
@@ -60,11 +59,11 @@ function readOutLoud(mess) {
 
     case (userLang = "en-US"):
       setTimeout(() => {
-        if (cityTemp.innerText.includes("-")) {
-          var replace = cityTemp.innerText.replace("-", "minus ");
+        if (cityTempEl.innerText.includes("-")) {
+          var replace = cityTempEl.innerText.replace("-", "minus ");
           var arr = [mess + " " + replace];
         } else {
-          var arr = [mess + " " + cityTemp.innerText];
+          var arr = [mess + " " + cityTempEl.innerText];
         }
         speech.text = arr;
         window.speechSynthesis.speak(speech);
@@ -74,14 +73,7 @@ function readOutLoud(mess) {
     default:
       break;
   }
-
-  // const utterance = new SpeechSynthesisUtterance(speech.text);
-  // window.speechSynthesis.speak(utterance);
 }
-
-// setTimeout(() => {
-//   readOutLoud();
-// }, 300);
 
 const micStop = () => {
   setTimeout(() => {
@@ -89,16 +81,18 @@ const micStop = () => {
   }, 3000);
 };
 
-document.querySelector(".iconMicrophone").addEventListener("click", recoStart);
+const searchSectionIconEl = document.querySelector(".searchSection i");
+
+searchSectionIconEl.addEventListener("click", recoStart);
 
 rec.onstart = (e) => {
-  document.querySelector(".iconMicrophone").classList.add("speechStart");
-  document.querySelector(".iconMicrophone").classList.remove("speechEnd");
+  searchSectionIconEl.classList.add("speechStart");
+  searchSectionIconEl.classList.remove("speechEnd");
   micStop();
 };
 
 rec.onend = (e) => {
   setQuery();
-  document.querySelector(".iconMicrophone").classList.add("speechEnd");
-  document.querySelector(".iconMicrophone").classList.remove("speechStart");
+  searchSectionIconEl.classList.add("speechEnd");
+  searchSectionIconEl.classList.remove("speechStart");
 };

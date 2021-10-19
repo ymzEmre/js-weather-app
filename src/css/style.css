@@ -6,21 +6,18 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap");
 
 body {
-  background-image: url("/assets/img/2.jpg");
+  background-image: url("../assets/img/home-page.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   height: 100vh;
   color: #ebebeb;
-  font-family: "Poppins", sans-serif;
-  letter-spacing: 1px;
+  font-family: var(--font-family);
+  letter-spacing: var(--letter-spacing);
+  transition-duration: 1s;
 }
 
-.bodyClass {
-  transition-duration: 2s;
-}
-
-.app {
+.container {
   height: 100vh;
   display: flex;
   flex-direction: row;
@@ -41,19 +38,14 @@ body {
   margin-top: -8px;
 }
 
-/* .section-city-finded2 {
-  max-height: 330px;
-} */
+@media screen and (max-width: 330px) {
+  #installButton {
+    padding: 7px 5px !important;
+  }
+}
 
 @media screen and (min-width: 768px) {
-  /* .section-city-finded {
-    opacity: 0.9;
-  }
-  .section-city-finded:hover {
-    opacity: unset;
-  } */
-
-  .wrapper {
+  .searchContainer {
     width: 40vw !important;
   }
 
@@ -61,16 +53,24 @@ body {
     max-width: 95%;
   }
 
-  .cityData > div {
+  .cityResultContainer .cityResultInfoOther > div {
     width: unset !important;
   }
 
-  .cityMain {
+  .cityResultInfoMain {
     width: 70% !important;
+  }
+
+  .installSection p {
+    font-size: 12px !important;
   }
 }
 
-.cityData div div {
+.ghostInstallSection {
+  display: block;
+}
+
+.cityResultContainer .cityResultInfoOther > div > div {
   white-space: pre;
 }
 
@@ -78,17 +78,19 @@ body {
   display: none;
 }
 
-.content h3 {
-  margin-top: 45px;
-  margin-bottom: 30px;
-  text-align: center;
-  display: none;
+.content {
+  display: flex;
+  flex-direction: column;
+}
+
+.searchSection {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
 .searchBox {
-  /* width: 600px; */
   height: 35px;
-  /* max-width: 100%; */
   border-radius: 6px;
   background-color: transparent;
   outline: 0;
@@ -100,9 +102,7 @@ body {
   text-transform: uppercase;
   border: 1px solid #e3e3e3;
   filter: var(--drop-shadow);
-  width: 70vw;
-  color: #fff;
-  margin-right: -4px;
+  width: 100%;
 }
 
 .black {
@@ -116,17 +116,13 @@ body {
   font-style: italic;
 }
 
-/* .searchBox:hover {
-  background-color: #ffffff91;
-} */
-
 .searchBox:focus {
   background-color: transparent;
   box-shadow: 0px 0px 8px #ffffffb5;
 }
 
-.cityDetail {
-  margin-top: 20px;
+.cityResultContainer .cityResultSection {
+  margin-top: 10px;
   font-size: var(--font-size);
   justify-content: center;
   flex-direction: row;
@@ -137,43 +133,71 @@ body {
   max-width: 605px;
   /* background: linear-gradient(179deg, rgb(131 58 180 / 73%) 0%, rgb(253 29 29 / 71%) 50%, rgb(112 71 170) 100%); */
   backdrop-filter: blur(20px);
-  background: #ffffff17;
   display: none;
   transition: all 1s;
   box-shadow: 0px 0px 3px 1px #fefefec4 inset;
 }
 
-.polat {
-  display: flex;
+.cityResultSectionDisplay {
+  display: flex !important;
   width: 100%;
 }
 
-.emre22 {
+.cityResultContainer {
   display: flex;
   justify-content: center;
 }
 
-.cityMain {
+.cityResultInfoMain {
   width: 50vw;
 }
 
-.wrapper {
-  width: 80vw;
-  padding: 25px 25px;
-  border-radius: 25px;
-  /* background: linear-gradient(201deg, rgb(131 58 180 / 73%) 0%, rgb(253 29 29 / 71%) 50%, rgb(112 71 170) 100%); */
-  backdrop-filter: blur(20px);
-  background: #ffffff17;
+.installSection {
+  padding: 10px;
   box-shadow: 0px 0px 3px 1px #fefefec4;
+  border-radius: var(--border-radius);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 25px;
+  margin-bottom: 10px;
 }
 
-.cityData > div {
+#installButton {
+  padding: 7px 14px;
+  backdrop-filter: blur(20px);
+  background: #0c9027e3;
+  border: none;
+  outline: none;
+  color: #fff;
+  border-radius: 7px;
+}
+
+#installButton i {
+  margin-left: -3px;
+  margin-right: 8px;
+  margin-top: 1px;
+}
+
+.installSection p {
+  font-size: 10px;
+  font-style: italic;
+}
+.searchContainer {
+  width: 80vw;
+  padding: 25px 25px;
+  backdrop-filter: blur(20px);
+  box-shadow: 0px 0px 3px 1px #fefefec4;
+  border-radius: var(--border-radius);
+}
+
+.cityResultContainer .cityResultInfoOther > div {
   display: flex;
   margin-top: 15px;
   font-weight: bold;
 }
 
-.cityData div i {
+.cityResultContainer .cityResultInfoOther div i {
   font-size: 22px;
   margin-right: 30px;
   font-weight: bold;
@@ -183,7 +207,7 @@ body {
   display: none !important;
 }
 
-.cityDetail .cityTemp {
+.cityResultContainer .cityResultSection .cityTemp {
   font-size: 45px;
   margin-left: 5px;
 }
@@ -210,26 +234,27 @@ body {
   color: #fff;
 }
 
-.ios-checkbox {
+.customCheckbox {
   position: absolute;
   width: 50px;
   height: 25px;
   align-self: flex-start;
 }
 
-.changeDeg {
+.changeDegreeSection {
   margin-bottom: 40px;
 }
 
-.checkbox-group {
+.checkboxSection {
   display: flex;
-  margin-right: 37px;
-  margin-bottom: 21px;
+  margin-bottom: 25px;
+  margin-top: -10px;
+  margin-right: -10px;
   filter: var(--drop-shadow);
   justify-content: flex-end;
 }
 
-.checkbox-group p {
+.checkboxSection p {
   margin-right: 58px;
   font-size: 12px;
   font-style: italic;
@@ -237,26 +262,26 @@ body {
   color: #e4e4e4;
 }
 
-.raw-checkbox {
+.inputCheckbox {
   display: none;
 }
-.raw-checkbox:checked + label {
+.inputCheckbox:checked + label {
   background: #14d832;
 }
-.raw-checkbox:checked + label:after {
+.inputCheckbox:checked + label:after {
   left: 26px;
 }
-.raw-checkbox:checked + label:active:after {
+.inputCheckbox:checked + label:active:after {
   left: 21px;
 }
-.raw-checkbox:disabled + label {
+.inputCheckbox:disabled + label {
   background: #d5d5d5;
   pointer-events: none;
 }
-.raw-checkbox:disabled + label:after {
+.inputCheckbox:disabled + label:after {
   background: #bcbdbc;
 }
-.css-checkbox {
+.labelCheckbox {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -267,7 +292,7 @@ body {
   cursor: pointer;
   transition: all 0.5s cubic-bezier(0.57, 0.8, 0.47, 0.38);
 }
-.css-checkbox:after {
+.labelCheckbox:after {
   content: "";
   position: absolute;
   left: 2px;
@@ -280,6 +305,6 @@ body {
   box-shadow: 0 1px 1px rgb(0 0 0 / 10%);
   transition: width 0.3s ease, left 0.3s ease;
 }
-.css-checkbox:active:after {
+.labelCheckbox:active:after {
   width: 26.4px;
 }
