@@ -38,6 +38,6 @@
   "theme_color": "#000",
   "background_color": "#000",
   "start_url": "/",
-  "display": "fullscreen",
+  "display": "minimal-ui",
   "orientation": "portrait"
 }
