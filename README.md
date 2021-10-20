@@ -1,8 +1,9 @@
 # WEATHER APP
 
-[DEMO](https://js-weather-app-zeta.vercel.app/)
+[Demo](https://js-weather-app-zeta.vercel.app)
 
-![alt text](https://docs.google.com/uc?export=open&id=141B8_1jybUsOcRxY1_IOZ_JKZp_N02ol)
+![weather](https://docs.google.com/uc?export=open&id=1HbfZT5-s1UaosTELX9EgowmLpdtahQqi)
+
 
 ## Features
 
@@ -10,5 +11,5 @@
 
 - Background and sound change according to the weather
 - Speech recognition
-- PWA support
+- PWA(Progressive Web Application) support (You can install it as an application on your device)
 - Fast city search
