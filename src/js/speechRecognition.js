@@ -7,6 +7,7 @@ rec.onresult = (event) => {
   const transcript = event.results[current][0].transcript;
   searchBoxEl.value = transcript;
   readOutLoud(transcript);
+  searchBoxEl.click();
 };
 
 function recoStart() {
@@ -97,5 +98,4 @@ rec.onend = (e) => {
   setQuery();
   searchSectionIconEl.classList.add("speechEnd");
   searchSectionIconEl.classList.remove("speechStart");
-  searchBoxEl.click();
 };
