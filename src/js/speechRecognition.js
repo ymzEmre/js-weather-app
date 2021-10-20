@@ -27,7 +27,9 @@ const getSpeechRecValue = JSON.parse(localStorage.getItem("autoListen"));
 
 if (getSpeechRecValue) {
   checkboxSpeechEl.checked = true;
-  rec.start();
+  setTimeout(() => {
+    rec.start();
+  }, 2000);
 } else {
   checkboxSpeechEl.checked = false;
   rec.stop();

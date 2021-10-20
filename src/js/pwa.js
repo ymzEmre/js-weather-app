@@ -1,22 +1,4 @@
-// const installButton = document.querySelector(".installSection");
-// const installButton2 = document.querySelector(".searchContainer");
-
-// let beforeInstallPromptEvent;
-
-// window.addEventListener("beforeinstallprompt", function (e) {
-//   e.preventDefault();
-//   beforeInstallPromptEvent = e;
-//   installButton.style.display = "flex";
-//   installButton.addEventListener("click", function () {
-//     e.prompt();
-//   });
-//   installButton.hidden = false;
-// });
-// installButton.addEventListener("click", function () {
-//   beforeInstallPromptEvent.prompt();
-// });
-
-var promptEvent;
+let promptEvent;
 
 window.addEventListener("beforeinstallprompt", function (e) {
   e.preventDefault();
