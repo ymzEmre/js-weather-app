@@ -1,6 +1,5 @@
 const weatherApiUrl = "https://api.openweathermap.org/data/2.5/";
 const weatherApiKey = "bfe61cb95c2da5f72b6fadb2bb5dc8dd";
-// const weatherApiKey = "bfe61cb95c2da5f72b6fadb2bb5dc8dd";
 
 const bodyEl = document.getElementsByTagName("body")[0];
 
@@ -137,11 +136,8 @@ const displayResult = (result) => {
 
   let getDesc = result.weather[0].main;
 
-  // console.log(result);
-
   if (getDesc.length > 0) {
     cityNotFoundEl.innerText = "";
-    // readOutLoud(searchBoxEl.value);
   }
 
   switch (getDesc) {

@@ -98,7 +98,5 @@ rec.onend = (e) => {
   searchSectionIconEl.classList.add("speechEnd");
   searchSectionIconEl.classList.remove("speechStart");
 
-  setTimeout(() => {
-    searchBoxEl.click();
-  }, 1000);
+  setTimeout(() => {}, 1000);
 };

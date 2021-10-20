@@ -1,6 +1,5 @@
 const installButton = document.querySelector(".installSection");
 const installButton2 = document.querySelector(".searchContainer");
-searchBoxEl.click();
 
 let beforeInstallPromptEvent;
 
