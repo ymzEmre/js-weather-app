@@ -29,7 +29,6 @@ if (getSpeechRecValue) {
   checkboxSpeechEl.checked = true;
   setTimeout(() => {
     rec.start();
-    searchBoxEl.click();
   }, 2000);
 } else {
   checkboxSpeechEl.checked = false;
@@ -98,4 +97,5 @@ rec.onend = (e) => {
   setQuery();
   searchSectionIconEl.classList.add("speechEnd");
   searchSectionIconEl.classList.remove("speechStart");
+  searchBoxEl.click();
 };
