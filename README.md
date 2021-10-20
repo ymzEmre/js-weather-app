@@ -2,7 +2,7 @@
 
 [Demo](https://js-weather-app-zeta.vercel.app)
 
-<img src='https://docs.google.com/uc?export=open&id=1HbfZT5-s1UaosTELX9EgowmLpdtahQqi' width='80%'/>
+![weather](https://docs.google.com/uc?export=open&id=1HbfZT5-s1UaosTELX9EgowmLpdtahQqi)
 
 
 ## Features
