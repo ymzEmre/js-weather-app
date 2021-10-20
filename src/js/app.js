@@ -49,7 +49,8 @@ const checkboxSectionLabel = document.querySelectorAll(".checkboxSection p");
 
 const installSection = document.querySelector(".installSection p");
 
-const soundSunnyEl = document.getElementById("soundSunny");
+const soundClearDayTimeEl = document.getElementById("soundClearDayTime");
+const soundClearNightTimeEl = document.getElementById("soundClearNightTime");
 const soundRainyEl = document.getElementById("soundRainy");
 const soundSnowyEl = document.getElementById("soundSnowy");
 const soundMistyEl = document.getElementById("soundMisty");
@@ -75,6 +76,7 @@ const getResult = (weatherApiCity) => {
   checkboxSectionLabel[0].classList.remove("black");
   checkboxSectionLabel[1].classList.remove("black");
   installSection.classList.remove("black");
+  cityResultSectionEl.classList.remove("white");
 
   fetch(query)
     .then((weather) => {
@@ -96,7 +98,8 @@ const getResult = (weatherApiCity) => {
         cityResultInfoOtherEl.classList.remove("displayNone");
       }
       bodyEl.style.backgroundImage = "url('src/assets/img/home-page.jpg')";
-      soundSunnyEl.pause();
+      soundClearDayTimeEl.pause();
+      soundClearNightTimeEl.pause();
       soundRainyEl.pause();
       soundSnowyEl.pause();
       soundMistyEl.pause();
@@ -111,6 +114,8 @@ const displayResult = (result) => {
     var ms = new Date(msGetValue * 1000);
     return ms.getHours() + ":" + ms.getMinutes();
   };
+
+  // console.log(result);
 
   cityNameEl.innerText = `${result.name}, ${result.sys.country}`;
   cityTempEl.innerText = `${Math.round(result.main.temp)} ${unitDegree}`;
@@ -140,10 +145,26 @@ const displayResult = (result) => {
     cityNotFoundEl.innerText = "";
   }
 
+  let currentTime = new Date().toLocaleTimeString("en-US", { hour12: false, hour: "numeric", minute: "numeric" });
+
+  let getCitySunrise = msToTime(result.sys.sunrise);
+
   switch (getDesc) {
     case (getDesc = "Clear"):
-      bodyEl.style.backgroundImage = "url('src/assets/weather/sunny.jpg')";
-      soundSunnyEl.play();
+      if (currentTime > getCitySunrise) {
+        // dayTime
+        bodyEl.style.backgroundImage = "url('src/assets/weather/clear-daytime.jpg')";
+        soundClearDayTimeEl.play();
+      } else {
+        // nightTime
+        bodyEl.style.backgroundImage = "url('src/assets/weather/clear-nighttime.jpg')";
+        soundClearNightTimeEl.play();
+
+        installSection.classList.remove("black");
+        checkboxSectionLabel[0].classList.remove("black");
+        checkboxSectionLabel[1].classList.remove("black");
+        cityResultSectionEl.classList.add("white");
+      }
       soundRainyEl.pause();
       soundSnowyEl.pause();
       soundMistyEl.pause();
@@ -153,7 +174,8 @@ const displayResult = (result) => {
     case (getDesc = "Clouds"):
       bodyEl.style.backgroundImage = "url('src/assets/weather/cloudy.jpg')";
       soundMistyEl.play();
-      soundSunnyEl.pause();
+      soundClearDayTimeEl.pause();
+      soundClearNightTimeEl.pause();
       soundRainyEl.pause();
       soundSnowyEl.pause();
       soundThunderStormEl.pause();
@@ -162,7 +184,8 @@ const displayResult = (result) => {
     case (getDesc = "Rain"):
       bodyEl.style.backgroundImage = "url('src/assets/weather/rainy.jpg')";
       soundRainyEl.play();
-      soundSunnyEl.pause();
+      soundClearDayTimeEl.pause();
+      soundClearNightTimeEl.pause();
       soundSnowyEl.pause();
       soundMistyEl.pause();
       soundThunderStormEl.pause();
@@ -171,7 +194,8 @@ const displayResult = (result) => {
     case (getDesc = "Snow"):
       bodyEl.style.backgroundImage = "url('src/assets/weather/snowy.jpg')";
       soundSnowyEl.play();
-      soundSunnyEl.pause();
+      soundClearDayTimeEl.pause();
+      soundClearNightTimeEl.pause();
       soundRainyEl.pause();
       soundMistyEl.pause();
       soundThunderStormEl.pause();
@@ -180,7 +204,8 @@ const displayResult = (result) => {
     case (getDesc = "Mist"):
       bodyEl.style.backgroundImage = "url('src/assets/weather/misty.jpg')";
       soundMistyEl.play();
-      soundSunnyEl.pause();
+      soundClearDayTimeEl.pause();
+      soundClearNightTimeEl.pause();
       soundRainyEl.pause();
       soundSnowyEl.pause();
       soundThunderStorm.pause();
@@ -189,7 +214,8 @@ const displayResult = (result) => {
     case (getDesc = "Thunderstorm"):
       bodyEl.style.backgroundImage = "url('src/assets/weather/thunderstorm.jpg')";
       soundThunderStormEl.play();
-      soundSunnyEl.pause();
+      soundClearDayTimeEl.pause();
+      soundClearNightTimeEl.pause();
       soundRainyEl.pause();
       soundSnowyEl.pause();
       soundMistyEl.pause();

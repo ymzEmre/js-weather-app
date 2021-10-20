@@ -50,8 +50,12 @@
     <!-- /Yandex.Metrika counter -->
   </head>
   <body>
-    <audio id="soundSunny" loop>
+    <audio id="soundClearDayTime" loop>
       <source src="http://docs.google.com/uc?export=open&id=1oRNuggej5nqvqOZq8H9OiPbe94HOvTED" type="audio/mpeg" />
+    </audio>
+
+    <audio id="soundClearNightTime" loop>
+      <source src="http://docs.google.com/uc?export=open&id=1DDWQecjKubbt2Q1f3an-b8e04gkcXZ5p" type="audio/mpeg" />
     </audio>
 
     <audio id="soundRainy" loop>
@@ -80,19 +84,21 @@
           </div>
 
           <div class="searchContainer">
-            <div class="checkboxSection">
-              <p>Auto listen at startup</p>
-              <div class="customCheckbox">
-                <input class="inputCheckbox" id="checkboxSpeech" type="checkbox" onchange="speechCurrentValue()" />
-                <label class="labelCheckbox" for="checkboxSpeech"></label>
+            <div class="checkboxContainer">
+              <div class="checkboxSection">
+                <p>Auto listen at startup</p>
+                <div class="customCheckbox">
+                  <input class="inputCheckbox" id="checkboxSpeech" type="checkbox" onchange="speechCurrentValue()" />
+                  <label class="labelCheckbox" for="checkboxSpeech"></label>
+                </div>
               </div>
-            </div>
 
-            <div class="checkboxSection changeDegreeSection">
-              <p>°C / °F</p>
-              <div class="customCheckbox">
-                <input class="inputCheckbox" id="checkboxUnitDegree" type="checkbox" onchange="changeUnitDegree()" />
-                <label class="labelCheckbox" for="checkboxUnitDegree"></label>
+              <div class="checkboxSection changeDegreeSection">
+                <p>°C / °F</p>
+                <div class="customCheckbox">
+                  <input class="inputCheckbox" id="checkboxUnitDegree" type="checkbox" onchange="changeUnitDegree()" />
+                  <label class="labelCheckbox" for="checkboxUnitDegree"></label>
+                </div>
               </div>
             </div>
 

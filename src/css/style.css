@@ -49,14 +49,6 @@ body {
 }
 
 @media screen and (min-width: 768px) {
-  .searchContainer {
-    width: 40vw !important;
-  }
-
-  .searchBox {
-    max-width: 95%;
-  }
-
   .cityResultContainer .cityResultInfoOther > div {
     width: unset !important;
   }
@@ -68,6 +60,39 @@ body {
   .installSection p {
     font-size: 12px !important;
   }
+
+  .checkboxSection:first-of-type {
+    margin-bottom: 30px;
+  }
+
+  .searchBox:hover {
+    box-shadow: 0px 0px 8px #ffffffb5;
+  }
+
+  #installButton:hover {
+    background: #0d7221e3;
+  }
+
+  .searchSection i {
+    font-size: 20px;
+  }
+
+  .searchSection i:hover {
+    transform: scale(1.8);
+    color: var(--red);
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .searchContainer {
+    width: 40vw !important;
+  }
+}
+
+.searchSection i {
+  transition: 1s;
+  transition-property: transform, color;
+  flex-basis: 30px;
 }
 
 .ghostInstallSection {
@@ -89,7 +114,7 @@ body {
 
 .searchSection {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
 }
 
@@ -104,13 +129,18 @@ body {
   font-weight: bold;
   font-size: var(--font-size);
   text-transform: uppercase;
-  border: 1px solid #e3e3e3;
+  border: 1px solid #e3e3e396;
   filter: var(--drop-shadow);
   width: 100%;
+  margin-right: 20px;
 }
 
 .black {
   color: #000 !important;
+}
+
+.white {
+  color: #e4e4e4 !important;
 }
 
 .searchBox::placeholder {
@@ -135,11 +165,10 @@ body {
   height: 230px;
   border-radius: 20px;
   max-width: 605px;
-  /* background: linear-gradient(179deg, rgb(131 58 180 / 73%) 0%, rgb(253 29 29 / 71%) 50%, rgb(112 71 170) 100%); */
   backdrop-filter: blur(20px);
   display: none;
   transition: all 1s;
-  box-shadow: 0px 0px 3px 1px #fefefec4 inset;
+  box-shadow: 0px 0px 3px 1px #fefefe inset;
 }
 
 .cityResultSectionDisplay {
@@ -158,7 +187,8 @@ body {
 
 .installSection {
   padding: 10px;
-  box-shadow: 0px 0px 3px 1px #fefefec4;
+  backdrop-filter: blur(20px);
+  box-shadow: 0px 0px 3px 1px #fefefe;
   border-radius: var(--border-radius);
   display: flex;
   justify-content: space-between;
@@ -175,6 +205,8 @@ body {
   outline: none;
   color: #fff;
   border-radius: 7px;
+  cursor: pointer;
+  transition: background 0.5s;
 }
 
 #installButton i {
@@ -186,12 +218,13 @@ body {
 .installSection p {
   font-size: 10px;
   font-style: italic;
+  margin-left: 15px;
 }
 .searchContainer {
   width: 80vw;
   padding: 25px 25px;
   backdrop-filter: blur(20px);
-  box-shadow: 0px 0px 3px 1px #fefefec4;
+  box-shadow: 0px 0px 3px 1px #fefefe;
   border-radius: var(--border-radius);
 }
 
@@ -245,21 +278,28 @@ body {
   align-self: flex-start;
 }
 
+.checkboxSection:first-of-type {
+  margin-bottom: 20px;
+}
+
 .changeDegreeSection {
   margin-bottom: 40px;
 }
 
-.checkboxSection {
+.checkboxContainer {
   display: flex;
-  margin-bottom: 25px;
-  margin-top: -10px;
-  margin-right: -10px;
+  justify-content: flex-end;
+  flex-direction: column;
+}
+
+.checkboxContainer .checkboxSection {
+  display: flex;
   filter: var(--drop-shadow);
   justify-content: flex-end;
 }
 
 .checkboxSection p {
-  margin-right: 58px;
+  margin-right: 65px;
   font-size: 12px;
   font-style: italic;
   margin-top: 5px;
