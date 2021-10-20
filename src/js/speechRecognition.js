@@ -29,6 +29,7 @@ if (getSpeechRecValue) {
   checkboxSpeechEl.checked = true;
   setTimeout(() => {
     rec.start();
+    searchBoxEl.click();
   }, 2000);
 } else {
   checkboxSpeechEl.checked = false;

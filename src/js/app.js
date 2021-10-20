@@ -1,6 +1,6 @@
 const weatherApiUrl = "https://api.openweathermap.org/data/2.5/";
 const weatherApiKey = "bfe61cb95c2da5f72b6fadb2bb5dc8dd";
-// const weatherApiKey = "9dc471d76a73a52a9fb31b72dec034bd";
+// const weatherApiKey = "bfe61cb95c2da5f72b6fadb2bb5dc8dd";
 
 const bodyEl = document.getElementsByTagName("body")[0];
 

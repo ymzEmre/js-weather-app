@@ -4,7 +4,6 @@ gsap.from(".searchContainer", {
   delay: 0.8,
   y: 50,
   ease: "expo.out",
-  stagger: 0.3,
 });
 
 gsap.from(".checkboxSection , .searchSection", {
@@ -22,7 +21,6 @@ gsap.from(".installSection", {
   delay: 3,
   y: -50,
   ease: "expo.out",
-  stagger: 0.3,
 });
 
 gsap.from(".installSection p", {
@@ -31,7 +29,6 @@ gsap.from(".installSection p", {
   delay: 3.5,
   y: 30,
   ease: "expo.out",
-  stagger: 0.3,
 });
 
 gsap.from("#installButton", {
@@ -40,5 +37,4 @@ gsap.from("#installButton", {
   delay: 4.3,
   y: 30,
   ease: "expo.out",
-  stagger: 0.3,
 });
