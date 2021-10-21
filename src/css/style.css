@@ -78,7 +78,6 @@ body {
   }
 
   .searchSection i:hover {
-    transform: scale(1.8);
     color: var(--red);
   }
 }
@@ -116,6 +115,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 3px;
 }
 
 .searchBox {
@@ -133,6 +133,7 @@ body {
   filter: var(--drop-shadow);
   width: 100%;
   margin-right: 20px;
+  margin-top: 5px;
 }
 
 .black {
@@ -207,6 +208,7 @@ body {
   border-radius: 7px;
   cursor: pointer;
   transition: background 0.5s;
+  margin-right: 15px;
 }
 
 #installButton i {
@@ -273,13 +275,17 @@ body {
 
 .customCheckbox {
   position: absolute;
-  width: 50px;
+  width: 45px;
   height: 25px;
   align-self: flex-start;
 }
 
 .checkboxSection:first-of-type {
   margin-bottom: 20px;
+}
+
+.checkboxSection:nth-child(2) {
+  margin-top: 20px;
 }
 
 .changeDegreeSection {
@@ -306,6 +312,10 @@ body {
   color: #e4e4e4;
 }
 
+.checkboxSection p:first-of-type {
+  position: absolute;
+}
+
 .inputCheckbox {
   display: none;
 }
@@ -313,10 +323,10 @@ body {
   background: #14d832;
 }
 .inputCheckbox:checked + label:after {
-  left: 26px;
+  left: 20px;
 }
 .inputCheckbox:checked + label:active:after {
-  left: 21px;
+  left: 14.5px;
 }
 .inputCheckbox:disabled + label {
   background: #d5d5d5;
@@ -325,6 +335,7 @@ body {
 .inputCheckbox:disabled + label:after {
   background: #bcbdbc;
 }
+
 .labelCheckbox {
   position: absolute;
   top: 0;
@@ -335,11 +346,12 @@ body {
   background: #ccc;
   cursor: pointer;
   transition: all 0.5s cubic-bezier(0.57, 0.8, 0.47, 0.38);
+  -webkit-tap-highlight-color: transparent;
 }
 .labelCheckbox:after {
   content: "";
   position: absolute;
-  left: 2px;
+  left: 3px;
   top: 2px;
   display: block;
   width: 21px;
@@ -350,5 +362,5 @@ body {
   transition: width 0.3s ease, left 0.3s ease;
 }
 .labelCheckbox:active:after {
-  width: 26.4px;
+  width: 26.5px;
 }

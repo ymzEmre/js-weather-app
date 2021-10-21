@@ -1,5 +1,5 @@
 const weatherApiUrl = "https://api.openweathermap.org/data/2.5/";
-const weatherApiKey = "bfe61cb95c2da5f72b6fadb2bb5dc8dd";
+const weatherApiKey = "9dc471d76a73a52a9fb31b72dec034bd";
 
 const bodyEl = document.getElementsByTagName("body")[0];
 
@@ -141,6 +141,12 @@ const displayResult = (result) => {
 
   let getDesc = result.weather[0].main;
 
+  // alert(getDesc.length);
+
+  // if (getDesc.value == "") {
+  //   console.log("object");
+  // }
+
   if (getDesc.length > 0) {
     cityNotFoundEl.innerText = "";
   }
@@ -165,60 +171,62 @@ const displayResult = (result) => {
         checkboxSectionLabel[1].classList.remove("black");
         cityResultSectionEl.classList.add("white");
       }
-      soundRainyEl.pause();
-      soundSnowyEl.pause();
-      soundMistyEl.pause();
-      soundThunderStormEl.pause();
+
+      let notsoundClear = document.querySelectorAll("audio:not(#soundClearDayTime):not(#soundClearNightTime)");
+      for (let i = 0; i < notsoundClear.length; i++) {
+        notsoundClear[i].pause();
+      }
       break;
 
     case (getDesc = "Clouds"):
       bodyEl.style.backgroundImage = "url('src/assets/weather/cloudy.jpg')";
       soundMistyEl.play();
-      soundClearDayTimeEl.pause();
-      soundClearNightTimeEl.pause();
-      soundRainyEl.pause();
-      soundSnowyEl.pause();
-      soundThunderStormEl.pause();
+
+      let notsoundMisty = document.querySelectorAll("audio:not(#soundMisty)");
+      for (let i = 0; i < notsoundMisty.length; i++) {
+        notsoundMisty[i].pause();
+      }
       break;
 
     case (getDesc = "Rain"):
       bodyEl.style.backgroundImage = "url('src/assets/weather/rainy.jpg')";
       soundRainyEl.play();
-      soundClearDayTimeEl.pause();
-      soundClearNightTimeEl.pause();
-      soundSnowyEl.pause();
-      soundMistyEl.pause();
-      soundThunderStormEl.pause();
+
+      let notsoundRainyEl = document.querySelectorAll("audio:not(#soundRainy)");
+      for (let i = 0; i < notsoundRainyEl.length; i++) {
+        notsoundRainyEl[i].pause();
+      }
       break;
 
     case (getDesc = "Snow"):
       bodyEl.style.backgroundImage = "url('src/assets/weather/snowy.jpg')";
       soundSnowyEl.play();
-      soundClearDayTimeEl.pause();
-      soundClearNightTimeEl.pause();
-      soundRainyEl.pause();
-      soundMistyEl.pause();
-      soundThunderStormEl.pause();
+
+      let notsoundSnowyEl = document.querySelectorAll("audio:not(#soundSnowy)");
+      for (let i = 0; i < notsoundSnowyEl.length; i++) {
+        notsoundSnowyEl[i].pause();
+      }
       break;
 
     case (getDesc = "Mist"):
       bodyEl.style.backgroundImage = "url('src/assets/weather/misty.jpg')";
       soundMistyEl.play();
-      soundClearDayTimeEl.pause();
-      soundClearNightTimeEl.pause();
-      soundRainyEl.pause();
-      soundSnowyEl.pause();
-      soundThunderStorm.pause();
+
+      let notsoundMistyEl = document.querySelectorAll("audio:not(#soundMisty)");
+      for (let i = 0; i < notsoundMistyEl.length; i++) {
+        notsoundMistyEl[i].pause();
+      }
+
       break;
 
     case (getDesc = "Thunderstorm"):
       bodyEl.style.backgroundImage = "url('src/assets/weather/thunderstorm.jpg')";
       soundThunderStormEl.play();
-      soundClearDayTimeEl.pause();
-      soundClearNightTimeEl.pause();
-      soundRainyEl.pause();
-      soundSnowyEl.pause();
-      soundMistyEl.pause();
+
+      let notsoundThunderStormEl = document.querySelectorAll("audio:not(#soundThunderStorm)");
+      for (let i = 0; i < notsoundThunderStormEl.length; i++) {
+        notsoundThunderStormEl[i].pause();
+      }
       break;
     default:
   }
