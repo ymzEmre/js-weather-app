@@ -141,12 +141,6 @@ const displayResult = (result) => {
 
   let getDesc = result.weather[0].main;
 
-  // alert(getDesc.length);
-
-  // if (getDesc.value == "") {
-  //   console.log("object");
-  // }
-
   if (getDesc.length > 0) {
     cityNotFoundEl.innerText = "";
   }
@@ -158,11 +152,6 @@ const displayResult = (result) => {
   switch (getDesc) {
     case (getDesc = "Clear"):
       if (currentTime > getCitySunrise) {
-        // dayTime
-        bodyEl.style.backgroundImage = "url('src/assets/weather/clear-daytime.jpg')";
-        soundClearDayTimeEl.play();
-      } else {
-        // nightTime
         bodyEl.style.backgroundImage = "url('src/assets/weather/clear-nighttime.jpg')";
         soundClearNightTimeEl.play();
 
@@ -170,6 +159,11 @@ const displayResult = (result) => {
         checkboxSectionLabel[0].classList.remove("black");
         checkboxSectionLabel[1].classList.remove("black");
         cityResultSectionEl.classList.add("white");
+      } else {
+        // dayTime
+        bodyEl.style.backgroundImage = "url('src/assets/weather/clear-daytime.jpg')";
+        soundClearDayTimeEl.play();
+        // nightTime
       }
 
       let notsoundClear = document.querySelectorAll("audio:not(#soundClearDayTime):not(#soundClearNightTime)");
