@@ -6,14 +6,22 @@ const bodyEl = document.getElementsByTagName("body")[0];
 const checkboxDegreeUnitEl = document.getElementById("checkboxUnitDegree");
 const searchBoxEl = document.querySelector(".searchBox");
 
+const checkboxSectionSpan = document.querySelectorAll(".checkboxSection p span");
+
 const changeUnitDegree = () => {
-  currentUnitDegree = checkboxDegreeUnitEl.checked ? "imperial" : "metric";
-  searchBoxEl.click();
-  if (checkboxDegreeUnitEl.checked) {
-    localStorage.setItem("currentUnitDegree", "imperial");
-  } else {
-    localStorage.setItem("currentUnitDegree", "metric");
-  }
+  setTimeout(() => {
+    currentUnitDegree = checkboxDegreeUnitEl.checked ? "imperial" : "metric";
+    searchBoxEl.click();
+    if (checkboxDegreeUnitEl.checked) {
+      localStorage.setItem("currentUnitDegree", "imperial");
+      checkboxSectionSpan[0].classList.remove("currentUnitDegree");
+      checkboxSectionSpan[1].classList.add("currentUnitDegree");
+    } else {
+      localStorage.setItem("currentUnitDegree", "metric");
+      checkboxSectionSpan[0].classList.add("currentUnitDegree");
+      checkboxSectionSpan[1].classList.remove("currentUnitDegree");
+    }
+  }, 300);
 };
 
 const getDegreeUnitValue = localStorage.getItem("currentUnitDegree");
@@ -110,19 +118,32 @@ const getResult = (weatherApiCity) => {
 const displayResult = (result) => {
   const unitDegree = checkboxDegreeUnitEl.checked ? "°F" : "°C";
 
+  const unitWindSpeed = checkboxDegreeUnitEl.checked ? "mph" : "km/h";
+
   const msToTime = (msGetValue) => {
-    var ms = new Date(msGetValue * 1000);
-    return ms.getHours() + ":" + ms.getMinutes();
+    let getMs = new Date(msGetValue * 1000);
+
+    let getHours = getMs.getHours();
+    let getMinutes = getMs.getMinutes();
+
+    let hours = getHours > 9 ? getHours : "0" + getHours;
+    let minutes = getMinutes > 9 ? getMinutes : "0" + getMinutes;
+
+    return hours + ":" + minutes;
   };
 
-  // console.log(result);
+  let cityWindSpeed = Math.round(result.wind.speed * 3.6);
+
+  if (checkboxDegreeUnitEl.checked) {
+    cityWindSpeed = Math.round(result.wind.speed);
+  }
 
   cityNameEl.innerText = `${result.name}, ${result.sys.country}`;
   cityTempEl.innerText = `${Math.round(result.main.temp)} ${unitDegree}`;
   cityDescEl.innerText = result.weather[0].description;
   cityMinMaxEl.innerText = `${Math.round(result.main.temp_min)} / ${Math.round(result.main.temp_max)}`;
   cityHumidityEl.innerText = `${result.main.humidity}%`;
-  cityWindSpeedEl.innerText = `${result.wind.speed}`;
+  cityWindSpeedEl.innerText = cityWindSpeed + " " + unitWindSpeed;
   citySunriseEl.innerText = msToTime(`${result.sys.sunrise}`);
   citySunsetEl.innerText = msToTime(`${result.sys.sunset}`);
 
@@ -152,6 +173,12 @@ const displayResult = (result) => {
   switch (getDesc) {
     case (getDesc = "Clear"):
       if (currentTime > getCitySunrise) {
+        // dayTime
+        bodyEl.style.backgroundImage = "url('src/assets/weather/clear-daytime.jpg')";
+        soundClearDayTimeEl.play();
+      } else {
+        // nightTime
+
         bodyEl.style.backgroundImage = "url('src/assets/weather/clear-nighttime.jpg')";
         soundClearNightTimeEl.play();
 
@@ -159,11 +186,6 @@ const displayResult = (result) => {
         checkboxSectionLabel[0].classList.remove("black");
         checkboxSectionLabel[1].classList.remove("black");
         cityResultSectionEl.classList.add("white");
-      } else {
-        // dayTime
-        bodyEl.style.backgroundImage = "url('src/assets/weather/clear-daytime.jpg')";
-        soundClearDayTimeEl.play();
-        // nightTime
       }
 
       let notsoundClear = document.querySelectorAll("audio:not(#soundClearDayTime):not(#soundClearNightTime)");
