@@ -14,12 +14,8 @@ const changeUnitDegree = () => {
     searchBoxEl.click();
     if (checkboxDegreeUnitEl.checked) {
       localStorage.setItem("currentUnitDegree", "imperial");
-      checkboxSectionSpan[0].classList.remove("currentUnitDegree");
-      checkboxSectionSpan[1].classList.add("currentUnitDegree");
     } else {
       localStorage.setItem("currentUnitDegree", "metric");
-      checkboxSectionSpan[0].classList.add("currentUnitDegree");
-      checkboxSectionSpan[1].classList.remove("currentUnitDegree");
     }
   }, 300);
 };
