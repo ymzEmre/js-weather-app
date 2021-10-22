@@ -298,13 +298,14 @@ body {
   margin-bottom: 20px;
 }
 
-.checkboxSection:nth-child(2) {
-  margin-top: 20px;
+.checkboxSection {
+  margin-top: 10px;
+  margin-bottom: 50px;
 }
 
-.changeDegreeSection {
+/* .changeDegreeSection {
   margin-bottom: 40px;
-}
+} */
 
 .checkboxContainer {
   display: flex;
