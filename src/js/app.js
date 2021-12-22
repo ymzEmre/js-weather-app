@@ -101,7 +101,7 @@ const getResult = (weatherApiCity) => {
         cityResultInfoMainEl.classList.remove('displayNone');
         cityResultInfoOtherEl.classList.remove('displayNone');
       }
-      bodyEl.style.backgroundImage = "url('src/assets/img/home-page.jpg')";
+      bodyEl.style.backgroundImage = "url('assets/img/home-page.jpg')";
       soundClearDayTimeEl.pause();
       soundClearNightTimeEl.pause();
       soundRainyEl.pause();
@@ -170,12 +170,12 @@ const displayResult = (result) => {
     case (getDesc = 'Clear'):
       if (currentTime > getCitySunrise) {
         // dayTime
-        bodyEl.style.backgroundImage = "url('src/assets/weather/clear-daytime.jpg')";
+        bodyEl.style.backgroundImage = "url('assets/weather/clear-daytime.jpg')";
         soundClearDayTimeEl.play();
       } else {
         // nightTime
 
-        bodyEl.style.backgroundImage = "url('src/assets/weather/clear-nighttime.jpg')";
+        bodyEl.style.backgroundImage = "url('assets/weather/clear-nighttime.jpg')";
         soundClearNightTimeEl.play();
 
         installSection.classList.remove('black');
@@ -191,7 +191,7 @@ const displayResult = (result) => {
       break;
 
     case (getDesc = 'Clouds'):
-      bodyEl.style.backgroundImage = "url('src/assets/weather/cloudy.jpg')";
+      bodyEl.style.backgroundImage = "url('assets/weather/cloudy.jpg')";
       soundMistyEl.play();
 
       let notsoundMisty = document.querySelectorAll('audio:not(#soundMisty)');
@@ -201,7 +201,7 @@ const displayResult = (result) => {
       break;
 
     case (getDesc = 'Rain'):
-      bodyEl.style.backgroundImage = "url('src/assets/weather/rainy.jpg')";
+      bodyEl.style.backgroundImage = "url('assets/weather/rainy.jpg')";
       soundRainyEl.play();
 
       let notsoundRainyEl = document.querySelectorAll('audio:not(#soundRainy)');
@@ -211,7 +211,7 @@ const displayResult = (result) => {
       break;
 
     case (getDesc = 'Snow'):
-      bodyEl.style.backgroundImage = "url('src/assets/weather/snowy.jpg')";
+      bodyEl.style.backgroundImage = "url('assets/weather/snowy.jpg')";
       soundSnowyEl.play();
 
       let notsoundSnowyEl = document.querySelectorAll('audio:not(#soundSnowy)');
@@ -221,7 +221,7 @@ const displayResult = (result) => {
       break;
 
     case (getDesc = 'Mist'):
-      bodyEl.style.backgroundImage = "url('src/assets/weather/misty.jpg')";
+      bodyEl.style.backgroundImage = "url('assets/weather/misty.jpg')";
       soundMistyEl.play();
 
       let notsoundMistyEl = document.querySelectorAll('audio:not(#soundMisty)');
@@ -232,7 +232,7 @@ const displayResult = (result) => {
       break;
 
     case (getDesc = 'Thunderstorm'):
-      bodyEl.style.backgroundImage = "url('src/assets/weather/thunderstorm.jpg')";
+      bodyEl.style.backgroundImage = "url('assets/weather/thunderstorm.jpg')";
       soundThunderStormEl.play();
 
       let notsoundThunderStormEl = document.querySelectorAll('audio:not(#soundThunderStorm)');

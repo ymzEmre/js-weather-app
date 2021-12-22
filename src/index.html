@@ -10,11 +10,11 @@
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-title" content="Weather" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-    <link rel="icon" sizes="128x128" href="src/assets/app-icon/144x144.png" />
-    <link rel="icon" sizes="128x128" href="src/assets/app-icon/192x192.png" />
+    <link rel="icon" sizes="128x128" href="assets/app-icon/144x144.png" />
+    <link rel="icon" sizes="128x128" href="assets/app-icon/192x192.png" />
     <link rel="manifest" href="manifest.json" />
 
-    <link rel="stylesheet" href="src/css/main.css" />
+    <link rel="stylesheet" href="css/main.css" />
 
     <link
       rel="stylesheet"
@@ -34,10 +34,14 @@
             (m[i].a = m[i].a || []).push(arguments);
           };
         m[i].l = 1 * new Date();
-        (k = e.createElement(t)), (a = e.getElementsByTagName(t)[0]), (k.async = 1), (k.src = r), a.parentNode.insertBefore(k, a);
-      })(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+        (k = e.createElement(t)),
+          (a = e.getElementsByTagName(t)[0]),
+          (k.async = 1),
+          (k.src = r),
+          a.parentNode.insertBefore(k, a);
+      })(window, document, 'script', 'https://mc.yandex.ru/metrika/tag.js', 'ym');
 
-      ym(85829086, "init", {
+      ym(85829086, 'init', {
         clickmap: true,
         trackLinks: true,
         accurateTrackBounce: true,
@@ -151,15 +155,15 @@
   </body>
 
   <script>
-    if ("serviceWorker" in navigator) {
-      window.addEventListener("load", function () {
-        navigator.serviceWorker.register("/serviceWorker.js?v=1");
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function () {
+        navigator.serviceWorker.register('/serviceWorker.js?v=1');
       });
     }
   </script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
-  <script src="src/js/app.js"></script>
-  <script src="src/js/speechRecognition.js"></script>
-  <script src="src/js/gsap.js"></script>
-  <script src="src/js/pwa.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/speechRecognition.js"></script>
+  <script src="js/gsap.js"></script>
+  <script src="js/pwa.js"></script>
 </html>
