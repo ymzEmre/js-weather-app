@@ -1,7 +1,10 @@
 require('dotenv').config();
 
-const weatherApiKey = process.env.API_API_KEY;
-const weatherApiUrl = process.env.API_API_URL;
+const weatherApiKey = process.env.API_KEY;
+const weatherApiUrl = process.env.API_URL;
+
+console.log(weatherApiKey, weatherApiUrl);
+return false;
 
 const bodyEl = document.getElementsByTagName('body')[0];
 
