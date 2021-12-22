@@ -1,0 +1,23 @@
+{
+  "name": "js-weather-app",
+  "version": "1.0.0",
+  "description": "[Demo](https://js-weather-app-zeta.vercel.app)",
+  "main": "serviceWorker.js",
+  "scripts": {
+    "start": "node src/js/app"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ymzEmre/js-weather-app.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ymzEmre/js-weather-app/issues"
+  },
+  "homepage": "https://github.com/ymzEmre/js-weather-app#readme",
+  "dependencies": {
+    "dotenv": "^10.0.0"
+  }
+}

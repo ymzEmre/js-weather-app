@@ -1,2 +1,4 @@
-*.exe
-.prettier
+/node_modules
+.vscode
+.idea
+.env
