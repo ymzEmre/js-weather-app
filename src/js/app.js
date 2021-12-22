@@ -1,5 +1,7 @@
-const weatherApiUrl = "https://api.openweathermap.org/data/2.5/";
+require("dotenv").config();
+
 const weatherApiKey = "9dc471d76a73a52a9fb31b72dec034bd";
+const weatherApiUrl = "https://api.openweathermap.org/data/2.5/";
 
 const bodyEl = document.getElementsByTagName("body")[0];
 
