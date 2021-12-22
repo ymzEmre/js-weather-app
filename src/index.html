@@ -12,7 +12,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
     <link rel="icon" sizes="128x128" href="assets/app-icon/144x144.png" />
     <link rel="icon" sizes="128x128" href="assets/app-icon/192x192.png" />
-    <link rel="manifest" href="manifest.json" />
+    <link rel="manifest" href="../manifest.json" />
 
     <link rel="stylesheet" href="css/main.css" />
 
@@ -157,7 +157,7 @@
   <script>
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', function () {
-        navigator.serviceWorker.register('/serviceWorker.js?v=1');
+        navigator.serviceWorker.register('../serviceWorker.js?v=1');
       });
     }
   </script>
