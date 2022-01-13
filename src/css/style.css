@@ -3,10 +3,10 @@
   padding: 0;
 }
 
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
 
 body {
-  background-image: url("../assets/img/home-page.jpg");
+  background-image: url('../assets/img/home-page.jpg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -281,116 +281,4 @@ body {
 .cityNotFound {
   font-weight: bold;
   color: #fff;
-}
-
-.customCheckbox {
-  position: absolute;
-  width: 48px;
-  height: 27px;
-  align-self: flex-start;
-}
-
-.changeDegreeSection div {
-  height: 28px;
-}
-
-.checkboxSection:first-of-type {
-  margin-bottom: 20px;
-}
-
-.checkboxSection {
-  margin-top: 10px;
-  margin-bottom: 50px;
-}
-
-/* .changeDegreeSection {
-  margin-bottom: 40px;
-} */
-
-.checkboxContainer {
-  display: flex;
-  justify-content: flex-end;
-  flex-direction: column;
-}
-
-.checkboxContainer .checkboxSection {
-  display: flex;
-  filter: var(--drop-shadow);
-  justify-content: flex-end;
-}
-
-.checkboxSection p {
-  margin-right: 65px;
-  font-size: 13px;
-  font-style: italic;
-  margin-top: 5px;
-  color: #e4e4e4;
-}
-
-.changeDegreeSection p {
-  font-size: 15px;
-  font-weight: bold;
-}
-
-.checkboxSection p:first-of-type {
-  position: absolute;
-}
-
-.inputCheckbox {
-  display: none;
-}
-.inputCheckbox:checked + label {
-  background: #14d832;
-}
-.inputCheckbox:checked + label:after {
-  left: 21px;
-}
-
-.inputCheckbox:checked + label:active:after {
-  left: 15.7px;
-}
-.inputCheckbox:disabled + label {
-  background: #d5d5d5;
-  pointer-events: none;
-}
-.inputCheckbox:disabled + label:after {
-  background: #bcbdbc;
-}
-
-.labelCheckbox {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  border-radius: 60px;
-  background: #ccc;
-  cursor: pointer;
-  transition: all 0.5s cubic-bezier(0.57, 0.8, 0.47, 0.38);
-  -webkit-tap-highlight-color: transparent;
-}
-.labelCheckbox:after {
-  content: "";
-  position: absolute;
-  left: 1.1px;
-  top: 0.9px;
-  display: block;
-  width: 25.1px;
-  height: 25.1px;
-  border-radius: 100%;
-  background: #fff;
-  box-shadow: 0 1px 1px rgb(0 0 0 / 10%);
-  transition: width 0.3s ease, left 0.3s ease;
-  filter: drop-shadow(0px 0px 2px black);
-}
-
-.changeDegreeSection .labelCheckbox:after {
-  top: 1px;
-  left: 1px;
-  width: 26px;
-  height: 26px;
-}
-
-.labelCheckbox:active:after {
-  width: 28.5px;
 }

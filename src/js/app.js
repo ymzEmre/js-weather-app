@@ -1,7 +1,8 @@
-require('dotenv').config();
+// require('dotenv').config();
 
 const weatherApiKey = process.env.API_KEY;
 const weatherApiUrl = process.env.API_URL;
+
 const bodyEl = document.getElementsByTagName('body')[0];
 const checkboxDegreeUnitEl = document.getElementById('checkboxUnitDegree');
 const searchBoxEl = document.querySelector('.searchBox');
@@ -47,8 +48,6 @@ const citySunriseEl = document.querySelector('.citySunrise');
 const citySunsetEl = document.querySelector('.citySunset');
 const cityNotFoundEl = document.querySelector('.cityNotFound');
 
-const checkboxSectionLabel = document.querySelectorAll('.checkboxSection p');
-
 const installSection = document.querySelector('.installSection p');
 
 const soundClearDayTimeEl = document.getElementById('soundClearDayTime');
@@ -75,38 +74,36 @@ const getResult = (weatherApiCity) => {
     cityIconEl[i].classList.add('displayOff');
   }
 
-  checkboxSectionLabel[0].classList.remove('black');
-  checkboxSectionLabel[1].classList.remove('black');
   installSection.classList.remove('black');
   cityResultSectionEl.classList.remove('white');
 
-  fetch(query)
-    .then((weather) => {
-      return weather.json();
-    })
-
-    .then(displayResult)
-
-    .catch((err) => {
-      if (searchBoxEl.value.length < 3) {
-        cityResultSectionEl.classList.remove('cityResultSectionDisplay');
-      } else if (searchBoxEl.value.length > 2) {
-        cityNotFoundEl.innerText = 'City not found';
-        cityResultInfoMainEl.classList.add('displayNone');
-        cityResultInfoOtherEl.classList.add('displayNone');
-        cityResultSectionEl.classList.add('cityResultSectionDisplay');
-      } else {
-        cityResultInfoMainEl.classList.remove('displayNone');
-        cityResultInfoOtherEl.classList.remove('displayNone');
-      }
-      bodyEl.style.backgroundImage = "url('assets/img/home-page.jpg')";
-      soundClearDayTimeEl.pause();
-      soundClearNightTimeEl.pause();
-      soundRainyEl.pause();
-      soundSnowyEl.pause();
-      soundMistyEl.pause();
-      soundThunderStormEl.pause();
-    });
+  if (searchBoxEl.value.length > 2) {
+    fetch(query)
+      .then((weather) => {
+        return weather.json();
+      })
+      .then(displayResult)
+      .catch(() => {
+        if (searchBoxEl.value.length < 3) {
+          cityResultSectionEl.classList.remove('cityResultSectionDisplay');
+        } else if (searchBoxEl.value.length > 2) {
+          cityNotFoundEl.innerText = 'City not found';
+          cityResultInfoMainEl.classList.add('displayNone');
+          cityResultInfoOtherEl.classList.add('displayNone');
+          cityResultSectionEl.classList.add('cityResultSectionDisplay');
+        } else {
+          cityResultInfoMainEl.classList.remove('displayNone');
+          cityResultInfoOtherEl.classList.remove('displayNone');
+        }
+        bodyEl.style.backgroundImage = "url('assets/img/home-page.jpg')";
+        soundClearDayTimeEl.pause();
+        soundClearNightTimeEl.pause();
+        soundRainyEl.pause();
+        soundSnowyEl.pause();
+        soundMistyEl.pause();
+        soundThunderStormEl.pause();
+      });
+  }
 };
 
 const displayResult = (result) => {
@@ -141,8 +138,6 @@ const displayResult = (result) => {
   citySunriseEl.innerText = msToTime(`${result.sys.sunrise}`);
   citySunsetEl.innerText = msToTime(`${result.sys.sunset}`);
 
-  checkboxSectionLabel[0].classList.add('black');
-  checkboxSectionLabel[1].classList.add('black');
   installSection.classList.add('black');
 
   cityResultInfoMainEl.classList.remove('displayNone');
