@@ -53,12 +53,13 @@
 
 .inputCheckbox:checked + label:after {
   content: '°F';
-  color: #000;
+  color: #fff;
   left: 21px;
   align-items: center;
   justify-content: space-around;
   display: flex;
   font-weight: bold;
+  background: #023364;
 }
 
 .inputCheckbox:checked + label:active:after {
@@ -79,10 +80,11 @@
   right: 0;
   left: 0;
   border-radius: 60px;
-  background: #ccc;
   cursor: pointer;
   transition: all 0.5s cubic-bezier(0.57, 0.8, 0.47, 0.38);
   -webkit-tap-highlight-color: transparent;
+  backdrop-filter: blur(20px);
+  box-shadow: 0px 0px 3px 1px #fefefe inset;
 }
 .labelCheckbox:after {
   content: '°C';
@@ -94,11 +96,12 @@
   width: 25.1px;
   height: 25.1px;
   border-radius: 100%;
-  color: #000;
+  color: #fff;
   align-items: center;
   justify-content: space-around;
   display: flex;
-  background: #fff;
+  background: #023364;
+
   box-shadow: 0 1px 1px rgb(0 0 0 / 10%);
   transition: width 0.3s ease, left 0.3s ease;
   filter: drop-shadow(0px 0px 2px black);

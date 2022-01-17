@@ -1,7 +1,7 @@
 // require('dotenv').config();
 
-const weatherApiKey = process.env.API_KEY;
-const weatherApiUrl = process.env.API_URL;
+const weatherApiUrl = 'https://api.openweathermap.org/data/2.5/';
+const weatherApiKey = '9dc471d76a73a52a9fb31b72dec034bd';
 
 const bodyEl = document.getElementsByTagName('body')[0];
 const checkboxDegreeUnitEl = document.getElementById('checkboxUnitDegree');
@@ -39,8 +39,7 @@ const cityNameEl = document.querySelector('.cityName');
 const cityTempEl = document.querySelector('.cityTemp');
 const cityDescEl = document.querySelector('.cityDesc');
 
-const cityResultInfoOtherEl = document.querySelector('.cityResultInfoOther');
-const cityIconEl = document.querySelectorAll('.cityResultInfoOther i');
+const cityResultOtherInfoEl = document.querySelector('.cityResultOtherInfo');
 const cityMinMaxEl = document.querySelector('.cityMinMax');
 const cityHumidityEl = document.querySelector('.cityHumidity');
 const cityWindSpeedEl = document.querySelector('.cityWindSpeed');
@@ -57,6 +56,8 @@ const soundSnowyEl = document.getElementById('soundSnowy');
 const soundMistyEl = document.getElementById('soundMisty');
 const soundThunderStormEl = document.getElementById('soundThunderStorm');
 
+const cityIconEl = document.querySelectorAll('.cityResultOtherInfo i');
+
 const getResult = (weatherApiCity) => {
   let query = `${weatherApiUrl}weather?q=${weatherApiCity}&appid=${weatherApiKey}&units=${currentUnitDegree}`;
 
@@ -70,9 +71,9 @@ const getResult = (weatherApiCity) => {
   citySunsetEl.innerText = '';
   cityWindSpeedEl.innerText = '';
 
-  for (i = 0; i < cityIconEl.length; i++) {
-    cityIconEl[i].classList.add('displayOff');
-  }
+  [...cityIconEl].forEach((el) => {
+    el.classList.add('displayOff');
+  });
 
   installSection.classList.remove('black');
   cityResultSectionEl.classList.remove('white');
@@ -89,11 +90,11 @@ const getResult = (weatherApiCity) => {
         } else if (searchBoxEl.value.length > 2) {
           cityNotFoundEl.innerText = 'City not found';
           cityResultInfoMainEl.classList.add('displayNone');
-          cityResultInfoOtherEl.classList.add('displayNone');
+          cityResultOtherInfoEl.classList.add('displayNone');
           cityResultSectionEl.classList.add('cityResultSectionDisplay');
         } else {
           cityResultInfoMainEl.classList.remove('displayNone');
-          cityResultInfoOtherEl.classList.remove('displayNone');
+          cityResultOtherInfoEl.classList.remove('displayNone');
         }
         bodyEl.style.backgroundImage = "url('assets/img/home-page.jpg')";
         soundClearDayTimeEl.pause();
@@ -141,11 +142,11 @@ const displayResult = (result) => {
   installSection.classList.add('black');
 
   cityResultInfoMainEl.classList.remove('displayNone');
-  cityResultInfoOtherEl.classList.remove('displayNone');
+  cityResultOtherInfoEl.classList.remove('displayNone');
 
-  for (i = 0; i < cityIconEl.length; i++) {
-    cityIconEl[i].classList.remove('displayOff');
-  }
+  [...cityIconEl].forEach((el) => {
+    el.classList.remove('displayOff');
+  });
 
   cityResultSectionEl.classList.add('cityResultSectionDisplay');
 
@@ -162,15 +163,11 @@ const displayResult = (result) => {
   switch (getDesc) {
     case (getDesc = 'Clear'):
       if (currentTime > getCitySunrise) {
-        // dayTime
         bodyEl.style.backgroundImage = "url('assets/weather/clear-daytime.jpg')";
         soundClearDayTimeEl.play();
       } else {
-        // nightTime
-
         bodyEl.style.backgroundImage = "url('assets/weather/clear-nighttime.jpg')";
         soundClearNightTimeEl.play();
-
         installSection.classList.remove('black');
         checkboxSectionLabel[0].classList.remove('black');
         checkboxSectionLabel[1].classList.remove('black');
@@ -178,9 +175,9 @@ const displayResult = (result) => {
       }
 
       let notsoundClear = document.querySelectorAll('audio:not(#soundClearDayTime):not(#soundClearNightTime)');
-      for (let i = 0; i < notsoundClear.length; i++) {
-        notsoundClear[i].pause();
-      }
+      [...notsoundClear].forEach((el) => {
+        el.pause();
+      });
       break;
 
     case (getDesc = 'Clouds'):
@@ -188,9 +185,9 @@ const displayResult = (result) => {
       soundMistyEl.play();
 
       let notsoundMisty = document.querySelectorAll('audio:not(#soundMisty)');
-      for (let i = 0; i < notsoundMisty.length; i++) {
-        notsoundMisty[i].pause();
-      }
+      [...notsoundMisty].forEach((el) => {
+        el.pause();
+      });
       break;
 
     case (getDesc = 'Rain'):
@@ -198,9 +195,10 @@ const displayResult = (result) => {
       soundRainyEl.play();
 
       let notsoundRainyEl = document.querySelectorAll('audio:not(#soundRainy)');
-      for (let i = 0; i < notsoundRainyEl.length; i++) {
-        notsoundRainyEl[i].pause();
-      }
+      [...notsoundRainyEl].forEach((el) => {
+        el.pause();
+      });
+
       break;
 
     case (getDesc = 'Snow'):
@@ -208,9 +206,9 @@ const displayResult = (result) => {
       soundSnowyEl.play();
 
       let notsoundSnowyEl = document.querySelectorAll('audio:not(#soundSnowy)');
-      for (let i = 0; i < notsoundSnowyEl.length; i++) {
-        notsoundSnowyEl[i].pause();
-      }
+      [...notsoundSnowyEl].forEach((el) => {
+        el.pause();
+      });
       break;
 
     case (getDesc = 'Mist'):
@@ -218,9 +216,9 @@ const displayResult = (result) => {
       soundMistyEl.play();
 
       let notsoundMistyEl = document.querySelectorAll('audio:not(#soundMisty)');
-      for (let i = 0; i < notsoundMistyEl.length; i++) {
-        notsoundMistyEl[i].pause();
-      }
+      [...notsoundMistyEl].forEach((el) => {
+        el.pause();
+      });
 
       break;
 
@@ -229,9 +227,9 @@ const displayResult = (result) => {
       soundThunderStormEl.play();
 
       let notsoundThunderStormEl = document.querySelectorAll('audio:not(#soundThunderStorm)');
-      for (let i = 0; i < notsoundThunderStormEl.length; i++) {
-        notsoundThunderStormEl[i].pause();
-      }
+      [...notsoundThunderStormEl].forEach((el) => {
+        el.pause();
+      });
       break;
     default:
   }
