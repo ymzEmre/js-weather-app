@@ -13,17 +13,17 @@ function recoStart() {
   rec.start();
 }
 
-const checkboxSpeechEl = document.getElementById("checkboxSpeech");
+const checkboxSpeechEl = document.getElementById('checkboxSpeech');
 
 const speechCurrentValue = () => {
   if (checkboxSpeechEl) {
-    localStorage.setItem("autoListen", checkboxSpeechEl.checked);
+    localStorage.setItem('autoListen', checkboxSpeechEl.checked);
   } else {
-    localStorage.setItem("autoListen", checkboxSpeechEl.checked);
+    localStorage.setItem('autoListen', checkboxSpeechEl.checked);
   }
 };
 
-const getSpeechRecValue = JSON.parse(localStorage.getItem("autoListen"));
+const getSpeechRecValue = JSON.parse(localStorage.getItem('autoListen'));
 
 if (getSpeechRecValue) {
   checkboxSpeechEl.checked = true;
@@ -36,7 +36,6 @@ if (getSpeechRecValue) {
 }
 
 var userLang = navigator.language || navigator.userLanguage;
-// console.log(userLang);
 
 function readOutLoud(mess) {
   const speech = new SpeechSynthesisUtterance();
@@ -46,26 +45,26 @@ function readOutLoud(mess) {
   speech.pitch = 1;
 
   switch (userLang) {
-    case (userLang = "tr"):
+    case (userLang = 'tr'):
       setTimeout(() => {
-        if (cityTempEl.innerText.includes("-")) {
-          var replace = cityTempEl.innerText.replace("-", "eksi ");
-          var arr = [mess + " " + replace];
+        if (cityTempEl.innerText.includes('-')) {
+          var replace = cityTempEl.innerText.replace('-', 'eksi ');
+          var arr = [mess + ' ' + replace];
         } else {
-          var arr = [mess + " " + cityTempEl.innerText];
+          var arr = [mess + ' ' + cityTempEl.innerText];
         }
         speech.text = arr;
         window.speechSynthesis.speak(speech);
       }, 300);
       break;
 
-    case (userLang = "en-US"):
+    case (userLang = 'en-US'):
       setTimeout(() => {
-        if (cityTempEl.innerText.includes("-")) {
-          var replace = cityTempEl.innerText.replace("-", "minus ");
-          var arr = [mess + " " + replace];
+        if (cityTempEl.innerText.includes('-')) {
+          var replace = cityTempEl.innerText.replace('-', 'minus ');
+          var arr = [mess + ' ' + replace];
         } else {
-          var arr = [mess + " " + cityTempEl.innerText];
+          var arr = [mess + ' ' + cityTempEl.innerText];
         }
         speech.text = arr;
         window.speechSynthesis.speak(speech);
@@ -83,20 +82,22 @@ const micStop = () => {
   }, 3000);
 };
 
-const searchSectionIconEl = document.querySelector(".searchSection i");
+const searchSectionIconEl = document.querySelector('.searchSection i');
 
-searchSectionIconEl.addEventListener("click", recoStart);
+searchSectionIconEl.addEventListener('click', recoStart);
 
 rec.onstart = (e) => {
-  searchSectionIconEl.classList.add("speechStart");
-  searchSectionIconEl.classList.remove("speechEnd");
+  searchSectionIconEl.classList.add('speechStart');
+  searchSectionIconEl.classList.remove('speechEnd');
   micStop();
 };
 
 rec.onend = (e) => {
   setQuery();
-  searchSectionIconEl.classList.add("speechEnd");
-  searchSectionIconEl.classList.remove("speechStart");
+  searchSectionIconEl.classList.add('speechEnd');
+  searchSectionIconEl.classList.remove('speechStart');
 
   setTimeout(() => {}, 1000);
 };
+
+export { SpeechRecognition };
