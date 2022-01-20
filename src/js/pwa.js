@@ -1,17 +1,16 @@
-const installButton = document.querySelector(".installSection");
-const installButton2 = document.querySelector(".searchContainer");
+const installButtonEl = document.querySelector('.installSection');
 
 let beforeInstallPromptEvent;
 
-window.addEventListener("beforeinstallprompt", function (e) {
+window.addEventListener('beforeinstallprompt', function (e) {
   e.preventDefault();
   beforeInstallPromptEvent = e;
-  installButton.style.display = "flex";
-  installButton.addEventListener("click", function () {
+  installButtonEl.style.display = 'flex';
+  installButtonEl.addEventListener('click', function () {
     e.prompt();
   });
-  installButton.hidden = false;
+  installButtonEl.hidden = false;
 });
-installButton.addEventListener("click", function () {
+installButtonEl.addEventListener('click', function () {
   beforeInstallPromptEvent.prompt();
 });
