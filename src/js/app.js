@@ -1,7 +1,5 @@
-// require('dotenv').config();
-
 const weatherApiUrl = 'https://api.openweathermap.org/data/2.5/';
-const weatherApiKey = process.env.API_KEY;
+const weatherApiKey = process.envç.API_KEY;
 const bodyEl = document.getElementsByTagName('body')[0];
 
 const unitDegreeSwitchEl = document.getElementById('unit-degree-switch');
@@ -69,35 +67,25 @@ const fetchData = (weatherApiCity) => {
   installSection.classList.remove('black');
   cityResultSectionEl.classList.remove('white');
 
-  if (searchInputEl.value.length > 2) {
-    fetch(query)
-      .then((weather) => {
-        return weather.json();
-      })
-      .then(displayResult)
-      .catch(() => {
-        if (searchInputEl.value.length < 3) {
-          cityResultSectionEl.classList.remove('cityResultSectionDisplay');
-        } else if (searchInputEl.value.length > 2) {
-          cityNotFoundEl.textContent = 'City not found';
-          cityResultInfoMainEl.classList.add('displayNone');
-          cityResultOtherInfoEl.classList.add('displayNone');
-          cityResultSectionEl.classList.add('cityResultSectionDisplay');
-        } else {
-          cityResultInfoMainEl.classList.remove('displayNone');
-          cityResultOtherInfoEl.classList.remove('displayNone');
-        }
-        bodyEl.style.backgroundImage = "url('assets/img/home-page.jpg')";
-      });
-  }
+  if (searchInputEl.value.length <= 2)
+    return (bodyEl.style.backgroundImage = "url('assets/img/home-page.jpg')"), cityResultSectionEl.classList.add('visibility-hidden');
+  cityResultSectionEl.classList.remove('visibility-hidden');
+  fetch(query)
+    .then((weather) => {
+      return weather.json();
+    })
+    .then(displayResult)
+    .catch(() => {
+      cityNotFoundEl.textContent = 'City not found';
+      cityResultInfoMainEl.classList.add('displayNone');
+      cityResultSectionEl.classList.remove('cityResultSectionDisplay');
+      bodyEl.style.backgroundImage = "url('assets/img/home-page.jpg')";
+      cityResultSectionEl.classList.add('cityResultSectionDisplay');
+    });
 };
 
-const testFunction = (e) => {
-  return console.log(e + '++++test');
-};
-
-const msToTime = (msGetValue) => {
-  let getMs = new Date(msGetValue * 1000);
+const msToTime = (getTime) => {
+  let getMs = new Date(getTime * 1000);
   let getHours = getMs.getHours();
   let getMinutes = getMs.getMinutes();
   let hours = getHours > 9 ? getHours : '0' + getHours;
@@ -105,28 +93,26 @@ const msToTime = (msGetValue) => {
   return hours + ':' + minutes;
 };
 
-const playAndPauseAudio = (pauseAudio, playAudio, backgroundURL) => {
+const playAndPauseAudio = (pauseAudio, playAudio, backgroundImage) => {
   const pauseAudioEl = document.querySelectorAll(`audio:not(#${pauseAudio})`);
   [...pauseAudioEl].forEach((el) => {
     el.pause();
   });
 
   document.getElementById(`${playAudio}`).play();
-  bodyEl.style.backgroundImage = `url('${backgroundURL}')`;
+  bodyEl.style.backgroundImage = `url('${backgroundImage}')`;
 };
 
 const displayResult = (result) => {
   const unitDegree = unitDegreeSwitchEl.checked ? '°F' : '°C';
   const unitWindSpeed = unitDegreeSwitchEl.checked ? 'mph' : 'km/h';
 
-  let cityWindSpeed = Math.round(result.wind.speed * 3.6);
-
   cityNameEl.textContent = `${result.name}, ${result.sys.country}`;
   cityTempEl.textContent = `${Math.round(result.main.temp)} ${unitDegree}`;
   cityDescEl.textContent = result.weather[0].description;
   cityMinMaxEl.textContent = `${Math.round(result.main.temp_min)} / ${Math.round(result.main.temp_max)}`;
   cityHumidityEl.textContent = `${result.main.humidity}%`;
-  cityWindSpeedEl.textContent = `${cityWindSpeed} ${unitWindSpeed}`;
+  cityWindSpeedEl.textContent = `${Math.round(result.wind.speed * 3.6)} ${unitWindSpeed}`;
   citySunriseEl.textContent = msToTime(`${result.sys.sunrise}`);
   citySunsetEl.textContent = msToTime(`${result.sys.sunset}`);
 

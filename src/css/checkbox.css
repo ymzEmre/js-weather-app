@@ -101,8 +101,6 @@
   justify-content: space-around;
   display: flex;
   background: #023364;
-
-  box-shadow: 0 1px 1px rgb(0 0 0 / 10%);
   transition: width 0.3s ease, left 0.3s ease;
   filter: drop-shadow(0px 0px 2px black);
 }
