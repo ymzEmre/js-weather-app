@@ -140,79 +140,12 @@ const displayResult = (result) => {
 
   cityResultSectionEl.classList.add('cityResultSectionDisplay');
 
-  switch (getDesc) {
-    case (getDesc = 'Clear'):
-      if (currentTime > getCitySunrise) {
-        bodyEl.style.backgroundImage = "url('assets/weather/clear-daytime.jpg')";
-        soundClearDayTimeEl.play();
-      } else {
-        bodyEl.style.backgroundImage = "url('assets/weather/clear-nighttime.jpg')";
-        soundClearNightTimeEl.play();
-        installSection.classList.remove('black');
-        checkboxSectionLabel[0].classList.remove('black');
-        checkboxSectionLabel[1].classList.remove('black');
-        cityResultSectionEl.classList.add('white');
-      }
-
-      let notsoundClear = document.querySelectorAll('audio:not(#soundClearDayTime):not(#soundClearNightTime)');
-      [...notsoundClear].forEach((el) => {
-        el.pause();
-      });
-      break;
-
-    case (getDesc = 'Clouds'):
-      bodyEl.style.backgroundImage = "url('assets/weather/cloudy.jpg')";
-      soundMistyEl.play();
-
-      let notsoundMisty = document.querySelectorAll('audio:not(#soundMisty)');
-      [...notsoundMisty].forEach((el) => {
-        el.pause();
-      });
-      break;
-
-    case (getDesc = 'Rain'):
-      bodyEl.style.backgroundImage = "url('assets/weather/rainy.jpg')";
-      soundRainyEl.play();
-
-      let notsoundRainyEl = document.querySelectorAll('audio:not(#soundRainy)');
-      [...notsoundRainyEl].forEach((el) => {
-        el.pause();
-      });
-
-      break;
-
-    case (getDesc = 'Snow'):
-      bodyEl.style.backgroundImage = "url('assets/weather/snowy.jpg')";
-      soundSnowyEl.play();
-
-      let notsoundSnowyEl = document.querySelectorAll('audio:not(#soundSnowy)');
-      [...notsoundSnowyEl].forEach((el) => {
-        el.pause();
-      });
-      break;
-
-    case (getDesc = 'Mist'):
-      bodyEl.style.backgroundImage = "url('assets/weather/misty.jpg')";
-      soundMistyEl.play();
-
-      let notsoundMistyEl = document.querySelectorAll('audio:not(#soundMisty)');
-      [...notsoundMistyEl].forEach((el) => {
-        el.pause();
-      });
-
-      break;
-
-    case (getDesc = 'Thunderstorm'):
-      bodyEl.style.backgroundImage = "url('assets/weather/thunderstorm.jpg')";
-      soundThunderStormEl.play();
-
-      let notsoundThunderStormEl = document.querySelectorAll('audio:not(#soundThunderStorm)');
-      [...notsoundThunderStormEl].forEach((el) => {
-        el.pause();
-      });
-      break;
-    default:
-  }
+  let getCityWeather = result.weather[0].main;
+  if (getCityWeather == 'Clear') return playAndPauseAudio('sound-clear', 'sound-clear', 'assets/weather/clear.jpg');
+  if (getCityWeather == 'Clouds') return playAndPauseAudio('sound-misty', 'sound-misty', 'assets/weather/cloudy.jpg');
+  if (getCityWeather == 'Rain') return playAndPauseAudio('sound-rainy', 'sound-rainy', 'assets/weather/rainy.jpg');
+  if (getCityWeather == 'Snow') return playAndPauseAudio('sound-snowy', 'sound-snowy', 'assets/weather/snowy.jpg');
+  if (getCityWeather == 'Thunderstorm') return playAndPauseAudio('sound-thunderstorm', 'sound-thunderstorm', 'assets/weather/thunderstorm.jpg');
 };
 
 'click keyup'.split(' ').forEach(function (e) {
