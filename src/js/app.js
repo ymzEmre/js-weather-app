@@ -1,7 +1,6 @@
-import weatherApiKey from './node';
-
 const weatherApiUrl = 'https://api.openweathermap.org/data/2.5/';
-// const weatherApiKey = process.env.API_KEY;
+
+const { API_KEY } = process.env;
 const bodyEl = document.getElementsByTagName('body')[0];
 
 const unitDegreeSwitchEl = document.getElementById('unit-degree-switch');
@@ -50,7 +49,7 @@ const installSection = document.querySelector('.installSection p');
 const cityIconEl = document.querySelectorAll('.cityResultOtherInfo i');
 
 const fetchData = (weatherApiCity) => {
-  const query = `${weatherApiUrl}weather?q=${weatherApiCity}&appid=${weatherApiKey}&units=${currentUnitDegree}`;
+  const query = `${weatherApiUrl}weather?q=${weatherApiCity}&appid=${API_KEY}&units=${currentUnitDegree}`;
 
   cityNameEl.textContent = '';
   cityTempEl.textContent = '';
