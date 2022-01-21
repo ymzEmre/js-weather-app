@@ -4,7 +4,7 @@
   "description": "[Demo](https://js-weather-app-zeta.vercel.app)",
   "main": "serviceWorker.js",
   "scripts": {
-    "start": "node src/js/app"
+    "start": "node src/js/node"
   },
   "repository": {
     "type": "git",

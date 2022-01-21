@@ -1,5 +1,7 @@
+import weatherApiKey from './node';
+
 const weatherApiUrl = 'https://api.openweathermap.org/data/2.5/';
-const weatherApiKey = process.env.API_KEY;
+// const weatherApiKey = process.env.API_KEY;
 const bodyEl = document.getElementsByTagName('body')[0];
 
 const unitDegreeSwitchEl = document.getElementById('unit-degree-switch');
