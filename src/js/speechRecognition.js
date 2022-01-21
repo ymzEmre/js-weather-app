@@ -1,17 +1,13 @@
 const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 
-const rec = new SpeechRecognition();
+const startRecognition = new SpeechRecognition();
 
-rec.onresult = (event) => {
+startRecognition.onresult = (event) => {
   const current = event.resultIndex;
   const transcript = event.results[current][0].transcript;
   searchInputEl.value = transcript;
   readOutLoud(transcript);
 };
-
-function recoStart() {
-  rec.start();
-}
 
 const checkboxSpeechEl = document.getElementById('checkboxSpeech');
 
@@ -28,57 +24,46 @@ const getSpeechRecValue = JSON.parse(localStorage.getItem('autoListen'));
 if (getSpeechRecValue) {
   checkboxSpeechEl.checked = true;
   setTimeout(() => {
-    rec.start();
+    startRecognition.start();
   }, 2000);
 } else {
   checkboxSpeechEl.checked = false;
-  rec.stop();
+  startRecognition.stop();
 }
 
-var userLang = navigator.language || navigator.userLanguage;
+const userLang = navigator.language || navigator.userLanguage;
 
-function readOutLoud(mess) {
+const readOutLoud = (mess) => {
+  const feedbackWeather = (lang) => {
+    setTimeout(() => {
+      if (cityTempEl.innerText.includes('-')) {
+        var replace = cityTempEl.innerText.replace('-', `${lang} `);
+        var arr = [mess + ' ' + replace];
+      } else {
+        var arr = [mess + ' ' + cityTempEl.innerText];
+      }
+      speech.text = arr;
+      window.speechSynthesis.speak(speech);
+    }, 300);
+  };
   const speech = new SpeechSynthesisUtterance();
 
   speech.volume = 1;
   speech.rate = 1;
   speech.pitch = 1;
 
-  switch (userLang) {
-    case (userLang = 'tr'):
-      setTimeout(() => {
-        if (cityTempEl.innerText.includes('-')) {
-          var replace = cityTempEl.innerText.replace('-', 'eksi ');
-          var arr = [mess + ' ' + replace];
-        } else {
-          var arr = [mess + ' ' + cityTempEl.innerText];
-        }
-        speech.text = arr;
-        window.speechSynthesis.speak(speech);
-      }, 300);
-      break;
+  if (userLang == 'en-US') return feedbackWeather('minus');
 
-    case (userLang = 'en-US'):
-      setTimeout(() => {
-        if (cityTempEl.innerText.includes('-')) {
-          var replace = cityTempEl.innerText.replace('-', 'minus ');
-          var arr = [mess + ' ' + replace];
-        } else {
-          var arr = [mess + ' ' + cityTempEl.innerText];
-        }
-        speech.text = arr;
-        window.speechSynthesis.speak(speech);
-      }, 300);
-      break;
+  feedbackWeather('eksi');
+};
 
-    default:
-      break;
-  }
+function recoStart() {
+  startRecognition.start();
 }
 
 const micStop = () => {
   setTimeout(() => {
-    rec.stop();
+    startRecognition.stop();
   }, 3000);
 };
 
@@ -86,13 +71,13 @@ const searchSectionIconEl = document.querySelector('.searchSection i');
 
 searchSectionIconEl.addEventListener('click', recoStart);
 
-rec.onstart = (e) => {
+startRecognition.onstart = (e) => {
   searchSectionIconEl.classList.add('speechStart');
   searchSectionIconEl.classList.remove('speechEnd');
   micStop();
 };
 
-rec.onend = (e) => {
+startRecognition.onend = (e) => {
   setQuery();
   searchSectionIconEl.classList.add('speechEnd');
   searchSectionIconEl.classList.remove('speechStart');
