@@ -52,27 +52,23 @@
     <!-- /Yandex.Metrika counter -->
   </head>
   <body>
-    <audio id="soundClearDayTime" loop>
+    <audio id="sound-clear" loop>
       <source src="http://docs.google.com/uc?export=open&id=1oRNuggej5nqvqOZq8H9OiPbe94HOvTED" type="audio/mpeg" />
     </audio>
 
-    <audio id="soundClearNightTime" loop>
-      <source src="http://docs.google.com/uc?export=open&id=1DDWQecjKubbt2Q1f3an-b8e04gkcXZ5p" type="audio/mpeg" />
-    </audio>
-
-    <audio id="soundRainy" loop>
+    <audio id="sound-rainy" loop>
       <source src="http://docs.google.com/uc?export=open&id=1ryysPmbzV1OthQKlzH2Eu9iEBUIjWuMt" type="audio/mpeg" />
     </audio>
 
-    <audio id="soundSnowy" loop>
+    <audio id="sound-snowy" loop>
       <source src="http://docs.google.com/uc?export=open&id=1L6TNU7--Fow8Qah8YsOPdI3MVhclRgJ-" type="audio/mpeg" />
     </audio>
 
-    <audio id="soundMisty" loop>
+    <audio id="sound-misty" loop>
       <source src="http://docs.google.com/uc?export=open&id=1t4il9p4lk6tHus7LX5kEsIF7HiNshbLP" type="audio/mpeg" />
     </audio>
 
-    <audio id="soundThunderStorm" loop>
+    <audio id="sound-thunderstorm" loop>
       <source src="http://docs.google.com/uc?export=open&id=1RNbeHSqQhqqItW24pOvRM-zTC9VvwzfD" type="audio/mpeg" />
     </audio>
 
@@ -97,14 +93,14 @@
 
               <div class="checkboxSection changeDegreeSection">
                 <div class="customCheckbox">
-                  <input class="inputCheckbox" id="checkboxUnitDegree" type="checkbox" onchange="changeUnitDegree()" />
-                  <label class="labelCheckbox" for="checkboxUnitDegree"></label>
+                  <input class="inputCheckbox" id="unit-degree-switch" type="checkbox" onchange="switchUnitDegree()" />
+                  <label class="labelCheckbox" for="unit-degree-switch"></label>
                 </div>
               </div>
             </div>
 
             <div class="searchSection">
-              <input type="text" class="searchBox" placeholder="Search city" autocomplete="off" autofocus />
+              <input type="text" class="search-input" placeholder="Search city" autocomplete="off" autofocus />
               <i class="fas fa-microphone"></i>
             </div>
           </div>

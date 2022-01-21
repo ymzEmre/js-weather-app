@@ -5,7 +5,7 @@ const rec = new SpeechRecognition();
 rec.onresult = (event) => {
   const current = event.resultIndex;
   const transcript = event.results[current][0].transcript;
-  searchBoxEl.value = transcript;
+  searchInputEl.value = transcript;
   readOutLoud(transcript);
 };
 
@@ -99,5 +99,3 @@ rec.onend = (e) => {
 
   setTimeout(() => {}, 1000);
 };
-
-export { SpeechRecognition };
