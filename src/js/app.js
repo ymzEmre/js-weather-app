@@ -1,6 +1,3 @@
-const weatherApiUrl = 'https://api.openweathermap.org/data/2.5/';
-
-const { API_KEY } = process.env;
 const bodyEl = document.getElementsByTagName('body')[0];
 
 const unitDegreeSwitchEl = document.getElementById('unit-degree-switch');
@@ -49,8 +46,6 @@ const installSection = document.querySelector('.installSection p');
 const cityIconEl = document.querySelectorAll('.cityResultOtherInfo i');
 
 const fetchData = (weatherApiCity) => {
-  const query = `${weatherApiUrl}weather?q=${weatherApiCity}&appid=${API_KEY}&units=${currentUnitDegree}`;
-
   cityNameEl.textContent = '';
   cityTempEl.textContent = '';
   cityDescEl.textContent = '';
@@ -71,7 +66,14 @@ const fetchData = (weatherApiCity) => {
   if (searchInputEl.value.length <= 2)
     return (bodyEl.style.backgroundImage = "url('assets/img/home-page.jpg')"), cityResultSectionEl.classList.add('visibility-hidden');
   cityResultSectionEl.classList.remove('visibility-hidden');
-  fetch(query)
+
+  const requestOptions = {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ city: weatherApiCity, units: currentUnitDegree }),
+  };
+
+  fetch('https://ymz-weather.herokuapp.com/', requestOptions)
     .then((weather) => {
       return weather.json();
     })

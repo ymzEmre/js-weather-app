@@ -1,7 +1,6 @@
 /node_modules
 .vscode
 .idea
-.env
 
 # Local Netlify folder
 .netlify
