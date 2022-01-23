@@ -102,7 +102,9 @@ const playAndPauseAudio = (pauseAudio, playAudio, backgroundImage) => {
     el.pause();
   });
 
-  document.getElementById(`${playAudio}`).play();
+  const playAudioEl = document.getElementById(`${playAudio}`);
+  playAudioEl.muted = false;
+  playAudioEl.play();
   bodyEl.style.backgroundImage = `url('${backgroundImage}')`;
 };
 

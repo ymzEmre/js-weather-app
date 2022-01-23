@@ -9,25 +9,25 @@ startRecognition.onresult = (event) => {
   readOutLoud(transcript);
 };
 
-const checkboxSpeechEl = document.getElementById('checkboxSpeech');
+const autoListenSwitchEl = document.getElementById('checkboxSpeech');
 
 const speechCurrentValue = () => {
-  if (checkboxSpeechEl) {
-    localStorage.setItem('autoListen', checkboxSpeechEl.checked);
+  if (autoListenSwitchEl) {
+    localStorage.setItem('autoListen', autoListenSwitchEl.checked);
   } else {
-    localStorage.setItem('autoListen', checkboxSpeechEl.checked);
+    localStorage.setItem('autoListen', autoListenSwitchEl.checked);
   }
 };
 
 const getSpeechRecValue = JSON.parse(localStorage.getItem('autoListen'));
 
 if (getSpeechRecValue) {
-  checkboxSpeechEl.checked = true;
+  autoListenSwitchEl.checked = true;
   setTimeout(() => {
     startRecognition.start();
   }, 2000);
 } else {
-  checkboxSpeechEl.checked = false;
+  autoListenSwitchEl.checked = false;
   startRecognition.stop();
 }
 
@@ -61,10 +61,14 @@ function recoStart() {
   startRecognition.start();
 }
 
+setTimeout(() => {
+  startRecognition.start();
+}, 3000);
+
 const micStop = () => {
   setTimeout(() => {
     startRecognition.stop();
-  }, 3000);
+  }, 4000);
 };
 
 const searchSectionIconEl = document.querySelector('.searchSection i');
