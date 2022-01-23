@@ -52,7 +52,6 @@
 }
 
 .inputCheckbox:checked + label:after {
-  content: '°F';
   color: #fff;
   left: 21px;
   align-items: center;
@@ -60,6 +59,13 @@
   display: flex;
   font-weight: bold;
   background: #023364;
+}
+
+.inputCheckbox:checked + label.checkbox-speech-recognition:after {
+  content: 'Off';
+}
+.inputCheckbox:checked + label.checkbox-unit-degree:after {
+  content: '°F';
 }
 
 .inputCheckbox:checked + label:active:after {
@@ -86,9 +92,9 @@
   backdrop-filter: blur(20px);
   box-shadow: 0px 0px 3px 1px #fefefe inset;
 }
-.labelCheckbox:after {
-  content: '°C';
+.labelCheckbox::after {
   position: absolute;
+  font-size: 0.7em;
   font-weight: bold;
   left: 1.1px;
   top: 0.9px;
@@ -103,6 +109,14 @@
   background: #023364;
   transition: width 0.3s ease, left 0.3s ease;
   filter: drop-shadow(0px 0px 2px black);
+}
+
+.checkbox-speech-recognition::after {
+  content: 'On';
+}
+
+.checkbox-unit-degree::after {
+  content: '°C';
 }
 
 .changeDegreeSection .labelCheckbox:after {

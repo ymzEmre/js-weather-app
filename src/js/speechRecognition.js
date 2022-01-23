@@ -61,14 +61,10 @@ function recoStart() {
   startRecognition.start();
 }
 
-setTimeout(() => {
-  startRecognition.start();
-}, 3000);
-
 const micStop = () => {
   setTimeout(() => {
     startRecognition.stop();
-  }, 4000);
+  }, 3000);
 };
 
 const searchSectionIconEl = document.querySelector('.searchSection i');
