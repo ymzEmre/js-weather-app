@@ -62,7 +62,7 @@
 }
 
 .inputCheckbox:checked + label.checkbox-speech-recognition:after {
-  content: 'Off';
+  content: 'On';
 }
 .inputCheckbox:checked + label.checkbox-unit-degree:after {
   content: '°F';
@@ -112,7 +112,7 @@
 }
 
 .checkbox-speech-recognition::after {
-  content: 'On';
+  content: 'Off';
 }
 
 .checkbox-unit-degree::after {
