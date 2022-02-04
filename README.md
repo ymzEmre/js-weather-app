@@ -1,8 +1,8 @@
-# WEATHER APP
+# Weather App
 
-[Demo](https://js-weather-app-zeta.vercel.app)
+[Demo](https://ymzemre-js-weather-app.netlify.app/)
 
-![weather](https://docs.google.com/uc?export=open&id=1A54n7hp1KpKodsSv8HrKD9UwHnstVK79)
+![weather](https://docs.google.com/uc?export=open&id=1CQXvxOgczzAQGaJByjJp1B6ILPEtQQCu)
 
 ## Features
 
