@@ -2,7 +2,7 @@
 
 [Demo](https://ymzemre-js-weather-app.netlify.app/)
 
-![weather](https://docs.google.com/uc?export=open&id=1CQXvxOgczzAQGaJByjJp1B6ILPEtQQCu)
+![weather](https://docs.google.com/uc?export=open&id=1YvU3SptSzSJug4yxpTmP7tJWSjERLiCc)
 
 ## Features
 
