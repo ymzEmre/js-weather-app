@@ -69,12 +69,12 @@ const fetchData = (weatherApiCity) => {
   if (searchInputEl.value.length <= 2) {
     (bodyEl.style.backgroundImage = "url('assets/img/home-page.jpg')"), cityResultSectionEl.classList.add('visibility-hidden');
     cityResultSectionEl.classList.remove('visibility-hidden');
+    cityResultSectionEl.classList.remove('cityResultSectionDisplay');
     [...backgroundSoundEl].forEach((el) => {
       el.pause();
     });
     return;
   }
-  console.log('request started');
   spinner.classList.add('visible');
 
   const requestOptions = {
@@ -120,7 +120,6 @@ const playAndPauseAudio = (pauseAudio, playAudio, backgroundImage) => {
 };
 
 const displayResult = (result) => {
-  console.log('request finished');
   spinner.classList.remove('visible');
   const unitDegree = unitDegreeSwitchEl.checked ? '°F' : '°C';
   const unitWindSpeed = unitDegreeSwitchEl.checked ? 'mph' : 'km/h';
