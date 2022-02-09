@@ -198,6 +198,29 @@ body {
   transition: all 0.5s;
 }
 
+/* https://codepen.io/EastingAndNorthing/pen/aNWrZz */
+
+#spinner {
+  display: none;
+  margin-top: 100px;
+  pointer-events: none;
+  width: 2.5em;
+  height: 2.5em;
+  border: 0.4em solid transparent;
+  border-color: #909aa5;
+  border-top-color: #ffffff;
+  border-radius: 50%;
+  animation: loadingspin 1s linear infinite;
+  position: absolute;
+  z-index: 1;
+}
+
+@keyframes loadingspin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 #installButton {
   padding: 7px 14px;
   background: #0c9027e3;
@@ -247,6 +270,9 @@ body {
   display: none !important;
 }
 
+.visible {
+  display: block !important;
+}
 .visibility-hidden {
   box-shadow: unset !important;
 }

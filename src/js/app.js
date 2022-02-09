@@ -44,6 +44,7 @@ const citySunsetEl = document.querySelector('.citySunset');
 const cityNotFoundEl = document.querySelector('.cityNotFound');
 const installSection = document.querySelector('.installSection p');
 const cityIconEl = document.querySelectorAll('.cityResultOtherInfo i');
+const spinner = document.getElementById('spinner');
 
 const fetchData = (weatherApiCity) => {
   cityNameEl.textContent = '';
@@ -73,6 +74,9 @@ const fetchData = (weatherApiCity) => {
     });
     return;
   }
+  console.log('request started');
+  spinner.classList.add('visible');
+
   const requestOptions = {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -90,6 +94,7 @@ const fetchData = (weatherApiCity) => {
       cityResultSectionEl.classList.remove('cityResultSectionDisplay');
       bodyEl.style.backgroundImage = "url('assets/img/home-page.jpg')";
       cityResultSectionEl.classList.add('cityResultSectionDisplay');
+      spinner.classList.remove('visible');
     });
 };
 
@@ -115,6 +120,8 @@ const playAndPauseAudio = (pauseAudio, playAudio, backgroundImage) => {
 };
 
 const displayResult = (result) => {
+  console.log('request finished');
+  spinner.classList.remove('visible');
   const unitDegree = unitDegreeSwitchEl.checked ? '°F' : '°C';
   const unitWindSpeed = unitDegreeSwitchEl.checked ? 'mph' : 'km/h';
 
