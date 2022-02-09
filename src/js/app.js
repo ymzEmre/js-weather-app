@@ -63,10 +63,16 @@ const fetchData = (weatherApiCity) => {
   installSection.classList.remove('black');
   cityResultSectionEl.classList.remove('white');
 
-  if (searchInputEl.value.length <= 2)
-    return (bodyEl.style.backgroundImage = "url('assets/img/home-page.jpg')"), cityResultSectionEl.classList.add('visibility-hidden');
-  cityResultSectionEl.classList.remove('visibility-hidden');
+  const backgroundSoundEl = document.getElementsByTagName('audio');
 
+  if (searchInputEl.value.length <= 2) {
+    (bodyEl.style.backgroundImage = "url('assets/img/home-page.jpg')"), cityResultSectionEl.classList.add('visibility-hidden');
+    cityResultSectionEl.classList.remove('visibility-hidden');
+    [...backgroundSoundEl].forEach((el) => {
+      el.pause();
+    });
+    return;
+  }
   const requestOptions = {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
