@@ -200,7 +200,6 @@ body {
 
 #installButton {
   padding: 7px 14px;
-  backdrop-filter: blur(20px);
   background: #0c9027e3;
   border: none;
   outline: none;
@@ -209,6 +208,7 @@ body {
   cursor: pointer;
   transition: background 0.5s;
   margin-right: 15px;
+  width: 110px;
 }
 
 #installButton i {
@@ -220,7 +220,7 @@ body {
 .installSection p {
   font-size: 10px;
   font-style: italic;
-  margin-left: 15px;
+  margin: 0 20px;
   font-weight: bold;
 }
 .searchContainer {
