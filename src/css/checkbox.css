@@ -28,6 +28,11 @@
   display: flex;
   filter: var(--drop-shadow);
   justify-content: flex-end;
+  margin-bottom: 2em;
+}
+
+.checkboxContainer .checkboxSection:last-child {
+  margin-top: 1em;
 }
 
 .checkboxSection p {
@@ -52,13 +57,13 @@
 }
 
 .inputCheckbox:checked + label:after {
-  color: #fff;
+  color: #000;
   left: 21px;
   align-items: center;
   justify-content: space-around;
   display: flex;
   font-weight: bold;
-  background: #023364;
+  background: #fff;
 }
 
 .inputCheckbox:checked + label.checkbox-speech-recognition:after {
@@ -102,11 +107,11 @@
   width: 25.1px;
   height: 25.1px;
   border-radius: 100%;
-  color: #fff;
+  color: #000;
   align-items: center;
   justify-content: space-around;
   display: flex;
-  background: #023364;
+  background: #fff;
   transition: width 0.3s ease, left 0.3s ease;
   filter: drop-shadow(0px 0px 2px black);
 }

@@ -132,6 +132,7 @@ const displayResult = (result) => {
   cityResultSectionEl.classList.add('cityResultSectionDisplay');
 
   let getCityWeather = result.weather[0].main;
+
   if (getCityWeather == 'Clear') return playAndPauseAudio('sound-clear', 'sound-clear', 'assets/weather/clear.jpg');
   if (getCityWeather == 'Clouds') return playAndPauseAudio('sound-misty', 'sound-misty', 'assets/weather/cloudy.jpg');
   if (getCityWeather == 'Rain') return playAndPauseAudio('sound-rainy', 'sound-rainy', 'assets/weather/rainy.jpg');

@@ -35,6 +35,7 @@ const userLang = navigator.language || navigator.userLanguage;
 
 const readOutLoud = (mess) => {
   const feedbackWeather = (lang) => {
+    console.log(lang);
     setTimeout(() => {
       if (cityTempEl.innerText.includes('-')) {
         var replace = cityTempEl.innerText.replace('-', `${lang} `);
