@@ -133,8 +133,8 @@ const displayResult = (result) => {
   cityMinMaxEl.textContent = `${Math.round(result.main.temp_min)} / ${Math.round(result.main.temp_max)}`;
   cityHumidityEl.textContent = `${result.main.humidity}%`;
   cityWindSpeedEl.textContent = `${Math.round(result.wind.speed * 3.6)} ${unitWindSpeed}`;
-  citySunriseEl.textContent = msToTime(`${result.sys.sunrise}`);
-  citySunsetEl.textContent = msToTime(`${result.sys.sunset}`);
+  citySunriseEl.textContent = `${result.sys.sunrise}`;
+  citySunsetEl.textContent = `${result.sys.sunset}`;
 
   installSection.classList.add('black');
   cityResultInfoMainEl.classList.remove('displayNone');
@@ -146,7 +146,7 @@ const displayResult = (result) => {
 
   cityResultSectionEl.classList.add('cityResultSectionDisplay');
 
-  const isDayTime = citySunriseEl > 6 && citySunriseEl < 18;
+  const isDayTime = citySunriseEl.textContent < new Date().getTime() && citySunsetEl.textContent > new Date().getTime();
 
   let getCityWeather = result.weather[0].main;
 
