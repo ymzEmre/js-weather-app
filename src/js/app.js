@@ -146,7 +146,7 @@ const displayResult = (result) => {
 
   cityResultSectionEl.classList.add('cityResultSectionDisplay');
 
-  const isDayTime = new Date().getHours() > 6 && new Date().getHours() < 18;
+  const isDayTime = citySunriseEl > 6 && citySunriseEl < 18;
 
   let getCityWeather = result.weather[0].main;
 
