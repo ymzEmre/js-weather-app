@@ -95,6 +95,9 @@ const fetchData = (weatherApiCity) => {
       bodyEl.style.backgroundImage = "url('assets/img/home-page.jpg')";
       cityResultSectionEl.classList.add('cityResultSectionDisplay');
       spinner.classList.remove('visible');
+      [...backgroundSoundEl].forEach((el) => {
+        el.pause();
+      });
     });
 };
 
