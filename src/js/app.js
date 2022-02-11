@@ -146,9 +146,13 @@ const displayResult = (result) => {
 
   cityResultSectionEl.classList.add('cityResultSectionDisplay');
 
+  const isDayTime = new Date().getHours() > 6 && new Date().getHours() < 18;
+
   let getCityWeather = result.weather[0].main;
 
-  if (getCityWeather == 'Clear') return playAndPauseAudio('sound-clear', 'sound-clear', 'assets/weather/clear.jpg');
+  if (getCityWeather == 'Clear' && isDayTime) return playAndPauseAudio('sound-clear', 'sound-clear', 'assets/weather/clear.jpg');
+  if (getCityWeather == 'Clear' && !isDayTime)
+    return playAndPauseAudio('sound-clear-night', 'sound-clear-night', 'assets/weather/clear-night.jpg'), (cityResultSectionEl.style.color = '#fff');
   if (getCityWeather == 'Clouds') return playAndPauseAudio('sound-misty', 'sound-misty', 'assets/weather/cloudy.jpg');
   if (getCityWeather == 'Rain') return playAndPauseAudio('sound-rainy', 'sound-rainy', 'assets/weather/rainy.jpg');
   if (getCityWeather == 'Snow') return playAndPauseAudio('sound-snowy', 'sound-snowy', 'assets/weather/snowy.jpg');
