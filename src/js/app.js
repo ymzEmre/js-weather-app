@@ -133,8 +133,8 @@ const displayResult = (result) => {
   cityMinMaxEl.textContent = `${Math.round(result.main.temp_min)} / ${Math.round(result.main.temp_max)}`;
   cityHumidityEl.textContent = `${result.main.humidity}%`;
   cityWindSpeedEl.textContent = `${Math.round(result.wind.speed * 3.6)} ${unitWindSpeed}`;
-  citySunriseEl.textContent = `${result.sys.sunrise}`;
-  citySunsetEl.textContent = `${result.sys.sunset}`;
+  citySunriseEl.textContent = msToTime(result.sys.sunrise);
+  citySunsetEl.textContent = msToTime(result.sys.sunset);
 
   installSection.classList.add('black');
   cityResultInfoMainEl.classList.remove('displayNone');
@@ -150,8 +150,8 @@ const displayResult = (result) => {
 
   let getCityWeather = result.weather[0].main;
 
-  if (getCityWeather == 'Clear' && isDayTime) return playAndPauseAudio('sound-clear', 'sound-clear', 'assets/weather/clear.jpg');
-  if (getCityWeather == 'Clear' && !isDayTime)
+  if (getCityWeather == 'Clear' && !isDayTime) return playAndPauseAudio('sound-clear', 'sound-clear', 'assets/weather/clear.jpg');
+  if (getCityWeather == 'Clear' && isDayTime)
     return playAndPauseAudio('sound-clear-night', 'sound-clear-night', 'assets/weather/clear-night.jpg'), (cityResultSectionEl.style.color = '#fff');
   if (getCityWeather == 'Clouds') return playAndPauseAudio('sound-misty', 'sound-misty', 'assets/weather/cloudy.jpg');
   if (getCityWeather == 'Rain') return playAndPauseAudio('sound-rainy', 'sound-rainy', 'assets/weather/rainy.jpg');
