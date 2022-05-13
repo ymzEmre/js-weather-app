@@ -12,5 +12,4 @@
 
 - Background and sound change according to the weather
 - Speech recognition
-- PWA(Progressive Web Application) support (You can install it as an application on your device)
-- Fast city search
+- PWA support
